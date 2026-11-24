@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<title>Lord's Web — Review Gadget</title>
+<style>
+:root{--bg:#080b14;--panel:#111827;--panel2:#172235;--text:#f4f7ff;--muted:#a7b2c6;--accent:#72e3ff;--accent2:#9b8cff;--line:#29364b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#1a3151 0%,transparent 45%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+button{font:inherit}.intro{position:fixed;inset:0;z-index:10;background:#060912;display:grid;place-items:center;animation:fadeAway .8s ease 2.2s forwards;pointer-events:none}
+.intro h1{font-size:clamp(2.5rem,10vw,6rem);letter-spacing:.12em;margin:0;background:linear-gradient(90deg,#fff,var(--accent),var(--accent2),#fff);background-size:250%;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shine 1.8s linear infinite, rise 1s ease both;text-align:center}
+.intro p{color:#aebbd0;text-align:center;letter-spacing:.3em;font-size:.72rem;animation:rise 1s .25s both}
+@keyframes shine{to{background-position:250% center}}@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeAway{to{opacity:0;visibility:hidden}}
+header{max-width:1120px;margin:auto;padding:28px 22px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;letter-spacing:.1em}.logo span{color:var(--accent)}.tag{font-size:.78rem;color:var(--muted)}
+main{max-width:1120px;margin:auto;padding:20px 22px 90px}.hero{text-align:center;padding:54px 10px 42px}.eyebrow{color:var(--accent);letter-spacing:.22em;font-size:.72rem;font-weight:800}.hero h2{font-size:clamp(2rem,6vw,4rem);margin:14px 0 12px}.hero p{color:var(--muted);max-width:650px;margin:auto;line-height:1.7}
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 38px}.menu-card{border:1px solid var(--line);background:linear-gradient(145deg,#17243a,#0e1523);border-radius:22px;padding:28px;min-height:190px;text-align:left;color:var(--text);cursor:pointer;transition:.25s;position:relative;overflow:hidden}.menu-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 15px 45px #0006}.menu-card .num{color:var(--accent);font-size:.75rem;letter-spacing:.18em}.menu-card h3{font-size:1.55rem;margin:16px 0 8px}.menu-card p{color:var(--muted);line-height:1.55;margin:0}.menu-card .arrow{position:absolute;right:24px;bottom:22px;font-size:1.7rem;color:var(--accent)}
+.section{display:none;animation:rise .35s ease}.section.active{display:block}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 22px}.section-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0}.back{border:1px solid var(--line);background:#111827;color:var(--text);border-radius:999px;padding:10px 16px;cursor:pointer}.phone-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.phone-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;cursor:pointer;transition:.2s}.phone-card:hover{border-color:var(--accent);transform:translateY(-3px)}.phone-card .symbol{height:150px;border-radius:13px;background:linear-gradient(140deg,#243c5d,#111827);display:grid;place-items:center;overflow:hidden;margin-bottom:15px}.phone-card .symbol img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}.phone-card h3{margin:0 0 6px}.phone-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+.detail{display:none;margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}.detail.active{display:block;animation:rise .3s}.detail-actions{display:flex;justify-content:flex-start;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.detail-back{border:1px solid #34445c;background:#17243a;color:var(--text);border-radius:999px;padding:11px 17px;cursor:pointer;transition:.2s}.detail-back:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}.detail h3{font-size:1.5rem;margin:0 0 8px}.detail .note{color:var(--muted);line-height:1.6;margin:0 0 18px}.spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.spec{background:#0c1320;border:1px solid #202d40;border-radius:12px;padding:13px}.spec b{display:block;font-size:.76rem;color:var(--accent);margin-bottom:6px;letter-spacing:.04em}.spec span{font-size:.92rem;line-height:1.5}.empty{border:1px dashed #40516c;background:#101827;border-radius:20px;min-height:240px;display:grid;place-items:center;text-align:center;padding:25px;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:1.2rem;margin-bottom:8px}
+footer{border-top:1px solid var(--line);color:#8794aa;text-align:center;padding:24px;font-size:.8rem}
+@media(max-width:700px){.menu{grid-template-columns:1fr}.phone-grid{grid-template-columns:1fr}.phone-card{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center}.phone-card .symbol{height:112px;margin:0}.spec-grid{grid-template-columns:1fr}header{padding-top:20px}.hero{padding-top:38px}}
+
+#musicRestoreFloating{display:none;position:fixed;right:14px;bottom:16px;z-index:10000;border:1px solid #42536d;background:#17243a;color:#72e3ff;border-radius:50%;width:46px;height:46px;font-size:20px;box-shadow:0 8px 24px #0008;cursor:pointer}
+#musicRestoreFloating.show{display:block}
+
+/* Floating music player */
+.music-widget{position:fixed;right:14px;bottom:16px;z-index:9999;width:220px;max-width:calc(100vw - 28px);background:rgba(12,19,32,.95);border:1px solid #34445d;border-radius:16px;padding:10px;box-shadow:0 12px 35px #0009;backdrop-filter:blur(12px);touch-action:none;user-select:none}
+.music-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px;cursor:grab}
+.music-top:active{cursor:grabbing}
+.music-brand{font-size:.68rem;font-weight:800;letter-spacing:.1em;color:var(--accent);white-space:nowrap}
+.music-status{font-size:.64rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:75px}
+.music-tools{display:flex;gap:4px;flex-shrink:0}
+.music-size{border:1px solid #42536d;background:#18263a;color:#dce8f7;border-radius:7px;width:24px;height:24px;font-size:.85rem;line-height:1;cursor:pointer;padding:0;display:grid;place-items:center}
+.music-size:hover{border-color:var(--accent);color:var(--accent)}
+
+.youtube-box{position:relative;width:100%;height:118px;margin:6px 0;border-radius:10px;overflow:hidden;background:#080e19;border:1px solid #1e2b3e}
+.youtube-player{width:100%;height:100%}
+.youtube-player iframe{width:100%;height:100%;border:0}
+
+/* Fallback overlay jika YouTube diblokir sandbox/embed */
+.yt-fallback{display:none;position:absolute;inset:0;background:linear-gradient(145deg,#131e31,#090e18);padding:10px;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px}
+.yt-fallback.active{display:flex}
+.yt-fallback p{margin:0;font-size:.68rem;color:#c5d2e6;line-height:1.35}
+.yt-fallback-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.yt-btn{border:1px solid var(--accent);background:rgba(114,227,255,.12);color:var(--accent);border-radius:999px;padding:4px 10px;font-size:.66rem;text-decoration:none;cursor:pointer}
+.yt-btn.alt{border-color:#42536d;background:#18263a;color:#e2ecfa}
+
+.music-visual{display:block;width:100%;height:32px;border-radius:8px;background:#080e19}
+.music-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:7px;gap:6px}
+.music-track{font-size:.68rem;color:#d9e4f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.music-mute{border:1px solid #42536d;background:#18263a;color:#f4f7ff;border-radius:999px;padding:5px 10px;font-size:.68rem;cursor:pointer}
+.music-mute:hover{border-color:var(--accent)}
+
+/* Mode Mini & Large */
+.music-widget.is-mini{width:170px;padding:8px}
+.music-widget.is-mini .youtube-box,
+.music-widget.is-mini .music-status,
+.music-widget.is-mini .music-visual{display:none}
+.music-widget.is-mini .music-top{margin:0}
+.music-widget.is-mini .music-bottom{margin-top:6px}
+
+.music-widget.is-large{width:265px;padding:12px}
+.music-widget.is-large .youtube-box{height:150px}
+.music-widget.is-large .music-visual{height:46px}
+
+.music-widget.is-hidden{display:none}
+.music-mute:focus-visible,.back:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="intro"><div><h1>LORD'S WEB</h1><p>GADGET REVIEW • SPECIFICATION • EXPERIENCE</p></div></div>
+<header><div class="logo">LORD'S <span>WEB</span></div><div class="tag">Personal Gadget Review</div></header>
+<main>
+<section id="home" class="hero">
+<div class="eyebrow">WELCOME TO MY WEBSITE</div><h2>Review teknologi,<br>tanpa basa-basi.</h2>
+<p>Tempat melihat daftar HP dan aksesoris gadget yang pernah saya review. Pilih kategori untuk mulai menjelajah.</p>
+</section>
+<section id="menu" class="menu">
+<button class="menu-card" onclick="showSection('phones')"><span class="num">01 / SMARTPHONE</span><h3>HP yang Pernah Saya Review</h3><p>Lihat spesifikasi, detail kamera, layar, performa, baterai, dan fitur penting lainnya.</p><span class="arrow">↗</span></button>
+<button class="menu-card" onclick="showSection('accessories')"><span class="num">02 / GADGET GEAR</span><h3>Aksesoris Gadget yang Pernah Saya Review</h3><p>Koleksi review aksesoris gadget. Bagian ini sengaja disiapkan kosong untuk ditambahkan nanti.</p><span class="arrow">↗</span></button>
+</section>
+<section id="phones" class="section">
+<div class="section-head"><h2>HP yang Pernah Saya Review</h2><button class="back" onclick="showSection('home')">← Kembali</button></div>
+<div class="phone-grid">
+<button class="phone-card" onclick="showPhone('s22')"><div class="symbol"><img src="https://www.cell2get.com/cdn/shop/files/s22black_b440531b-dc35-403c-a457-935554ae11d9.jpg?v=1737990516" alt="Samsung Galaxy S22+ tampak depan dan belakang" loading="lazy"></div><div><h3>Samsung Galaxy S22+</h3><p>Flagship Samsung • 2022</p></div></button>
+<button class="phone-card" onclick="showPhone('ip7')"><div class="symbol"><img src="https://bf1af2.akinoncloudcdn.com/products/2024/11/20/198142/9e9e9422-4f1b-4a7d-8459-a7187bb6ce22_size3840_cropCenter.jpg" alt="iPhone 7 tampak depan, samping, dan belakang" loading="lazy"></div><div><h3>iPhone 7</h3><p>Apple • 2016</p></div></button>
+<button class="phone-card" onclick="showPhone('ip11')"><div class="symbol"><img src="https://media-ik.croma.com/Croma%20Assets/Communication/Mobiles/Images/230106_nxtpnk.png" alt="iPhone 11 tampak depan dan belakang" loading="lazy"></div><div><h3>iPhone 11</h3><p>Apple • 2019</p></div></button>
+</div>
+<div id="phoneDetail" class="detail"></div>
+</section>
+<section id="accessories" class="section">
+<div class="section-head"><h2>Aksesoris Gadget</h2><button class="back" onclick="showSection('home')">← Kembali</button></div>
+<div class="empty"><div><strong>Belum ada review aksesoris</strong>Konten akan ditambahkan di sini nanti.</div></div>
+</section>
+</main>
+
+<div class="music-widget is-mini" id="musicWidget" aria-label="Pemutar musik Lord's Web">
+  <div class="music-top" id="musicDrag">
+    <span class="music-brand">LORD'S AUDIO</span>
+    <span class="music-status" id="musicStatus">Siap</span>
+    <span class="music-tools">
+      <button class="music-size" id="musicSmaller" type="button" aria-label="Mode mini" title="Mode Mini">−</button>
+      <button class="music-size" id="musicLarger" type="button" aria-label="Perbesar pemutar" title="Tampilkan Video">＋</button>
+      <button class="music-size" id="musicCollapse" type="button" aria-label="Sembunyikan panel" title="Sembunyikan">⌄</button>
+    </span>
+  </div>
+
+  <div class="youtube-box">
+    <div id="youtubePlayer" class="youtube-player" aria-label="Pemutar YouTube"></div>
+    <div id="ytFallback" class="yt-fallback">
+      <p>Embed YouTube dibatasi di mode pratinjau lokal (Error 153). Audio Synth aktif.</p>
+      <div class="yt-fallback-actions">
+        <a id="ytDirectLink" class="yt-btn" href="https://www.youtube.com" target="_blank" rel="noopener">Buka YouTube ↗</a>
+        <button id="ytNextBtn" class="yt-btn alt" type="button">Ganti Track</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas class="music-visual" id="musicVisualizer" width="340" height="70" aria-label="Visualizer animasi"></canvas>
+  <div class="music-bottom">
+    <span class="music-track" id="musicTrack">Pilih menu dulu</span>
+    <button class="music-mute" id="musicMute" type="button" aria-pressed="false">Mute</button>
+  </div>
+</div>
+<button id="musicRestoreFloating" type="button" aria-label="Tampilkan pemutar musik" title="Tampilkan musik">♫</button>
+
+<footer>© 2026 Lord's Web · Dibuat untuk dokumentasi review gadget</footer>
+<script>
+const data={
+s22:{name:"Samsung Galaxy S22+",note:"Spesifikasi dapat berbeda menurut wilayah/varian. Detail kamera sensor merupakan ukuran format optik yang umum dilaporkan; produsen tidak selalu mencantumkan ukuran sensor resmi.",specs:[
+["Jaringan","GSM / CDMA / HSPA / EVDO / LTE / 5G; Nano-SIM + eSIM (tergantung wilayah)"],["Chipset","Samsung Exynos 2200 (varian Indonesia/global tertentu, 4 nm); Snapdragon 8 Gen 1 di wilayah tertentu"],["CPU & GPU","Octa-core; Xclipse 920 GPU (Exynos) / Adreno 730 (Snapdragon)"],["RAM & penyimpanan","8 GB RAM; 128 GB atau 256 GB UFS 3.1; tanpa slot microSD"],["Layar","6,6 inci Dynamic AMOLED 2X, FHD+ 2340 × 1080, 120 Hz adaptif hingga 120 Hz, HDR10+, Gorilla Glass Victus+"],["Kamera utama (wide)","50 MP, f/1.8, 23 mm ekuivalen, Dual Pixel PDAF, OIS; sensor sekitar 1/1.56 inci; piksel 1.0 µm (12.5 MP pixel-binning 2.0 µm)"],["Kamera telefoto","10 MP, f/2.4, 70 mm ekuivalen, PDAF, OIS, optical zoom 3×; sensor sekitar 1/3.94 inci; 1.0 µm"],["Kamera ultrawide","12 MP, f/2.2, 120°, 13 mm ekuivalen; sensor sekitar 1/2.55 inci; 1.4 µm"],["Kamera depan","10 MP, f/2.2, 26 mm ekuivalen, Dual Pixel PDAF; sensor sekitar 1/3.24 inci; 1.22 µm"],["Video","Belakang hingga 8K 24 fps; 4K hingga 60 fps; OIS/EIS (mode dan lensa bervariasi). Depan hingga 4K 60 fps"],["Baterai & pengisian","4.500 mAh tipikal; kabel 45 W, nirkabel 15 W, Wireless PowerShare"],["Audio & konektivitas","Stereo speaker, Dolby Atmos; Wi-Fi 6, Bluetooth 5.2, NFC, USB-C 3.2"],["Keamanan & fitur","Ultrasonic in-display fingerprint, IP68, Samsung DeX, UWB, Samsung Knox"],["Dimensi & bobot","157,4 × 75,8 × 7,6 mm; sekitar 195 gram"],["Sistem saat rilis","Android 12 dengan One UI 4.1; dukungan versi bergantung kebijakan update dan wilayah"]
+]},
+ip7:{name:"Apple iPhone 7",note:"Apple tidak selalu mempublikasikan ukuran fisik sensor dan kapasitas RAM. Angka sensor di bawah merupakan perkiraan format optik dari basis data spesifikasi pihak ketiga.",specs:[
+["Jaringan","GSM / CDMA / HSPA / EVDO / LTE; Nano-SIM; tidak mendukung 5G"],["Chipset","Apple A10 Fusion (16 nm) dengan co-processor gerak M10"],["CPU & GPU","CPU quad-core (2 core performa + 2 core efisiensi); GPU PowerVR Series7XT Plus"],["RAM & penyimpanan","2 GB RAM; 32 / 128 / 256 GB; tanpa microSD"],["Layar","4,7 inci Retina IPS LCD, 1334 × 750 (326 ppi), 3D Touch, 625 nits tipikal"],["Kamera utama","12 MP wide, f/1.8, 28 mm ekuivalen, PDAF, OIS, quad-LED True Tone flash; sensor sekitar 1/3 inci; piksel 1.22 µm"],["Kamera depan","7 MP, f/2.2, 32 mm ekuivalen; sensor sekitar 1/4 inci; piksel 1.0 µm"],["Video","Belakang 4K 30 fps; 1080p hingga 120 fps; 720p hingga 240 fps; depan 1080p 30 fps"],["Baterai & pengisian","Baterai Li-Ion sekitar 1.960 mAh (nilai tipikal); pengisian kabel melalui Lightning; tanpa wireless charging"],["Audio & konektivitas","Stereo speaker; Lightning; Wi-Fi 802.11 a/b/g/n/ac; Bluetooth 4.2; NFC untuk Apple Pay"],["Keamanan & ketahanan","Touch ID di tombol Home; IP67 tahan air/debu saat baru; tidak ada jack 3,5 mm"],["Dimensi & bobot","138,3 × 67,1 × 7,1 mm; 138 gram"],["Sistem saat rilis","iOS 10; batas versi iOS resmi terakhir iOS 15"]
+]},
+ip11:{name:"Apple iPhone 11",note:"Apple tidak menyebut ukuran sensor kamera dan RAM pada lembar spesifikasi resminya; ukuran sensor di bawah adalah perkiraan format optik yang umum dirujuk.",specs:[
+["Jaringan","GSM / CDMA / HSPA / EVDO / LTE; Nano-SIM + eSIM; tidak mendukung 5G"],["Chipset","Apple A13 Bionic (7 nm+) dengan Neural Engine generasi ke-3"],["CPU & GPU","CPU hexa-core; Apple-designed GPU quad-core"],["RAM & penyimpanan","4 GB RAM; 64 / 128 / 256 GB; tanpa microSD"],["Layar","6,1 inci Liquid Retina IPS LCD, 1792 × 828 (326 ppi), True Tone, wide color (P3), 625 nits tipikal"],["Kamera utama (wide)","12 MP, f/1.8, 26 mm ekuivalen, focus pixels PDAF, OIS; sensor sekitar 1/2.55 inci; piksel 1.4 µm"],["Kamera ultrawide","12 MP, f/2.4, 13 mm ekuivalen, bidang pandang 120°; sensor sekitar 1/3.6 inci; piksel 1.0 µm; tanpa OIS/autofokus"],["Kamera depan","12 MP TrueDepth, f/2.2, 23 mm ekuivalen; sensor sekitar 1/3.6 inci; piksel 1.0 µm; Face ID"],["Video","Belakang 4K 24/30/60 fps; 1080p hingga 240 fps; extended dynamic range hingga 60 fps; audio zoom; depan 4K hingga 60 fps"],["Baterai & pengisian","Apple menyatakan hingga 17 jam pemutaran video; pengisian nirkabel Qi; fast-charge dengan adaptor yang sesuai (adaptor dijual terpisah saat rilis)"],["Audio & konektivitas","Stereo speaker; Lightning; Wi-Fi 6 (802.11ax); Bluetooth 5.0; NFC; Ultra Wideband U1"],["Keamanan & ketahanan","Face ID; IP68 (maks. 2 m hingga 30 menit saat baru, kondisi uji); kaca depan/belakang"],["Dimensi & bobot","150,9 × 75,7 × 8,3 mm; 194 gram"],["Sistem saat rilis","iOS 13"]
+]}
+};
+
+const categoryVideos = [
+  {id:"J4RxO3lRsi0", title:"Track kategori 1"},
+  {id:"LlN8MPS7KQs", title:"Track kategori 2"}
+];
+const detailVideos = [
+  {id:"QVykEzVZpJQ", title:"Track detail 1"},
+  {id:"_dUL2fH-aOE", title:"Track detail 2"},
+  {id:"7ISuL9RumXs", title:"Track detail 3"},
+  {id:"0fAXF-ZPIAI", title:"Track detail 4"},
+  {id:"r43fnvdlsUU", title:"Track detail 5"}
+];
+
+let lastCategoryVideo = -1;
+let lastDetailVideo = -1;
+let activePlaylistType = "category";
+let ytPlayer = null;
+let ytReady = false;
+let pendingVideo = null;
+let visualFrame = null;
+let visualPhase = 0;
+let isMuted = false;
+
+// Fallback Ambient Synth Audio (jika YouTube Error 153 di lingkungan sandbox)
+let audioCtx = null;
+let synthTimer = null;
+let synthGain = null;
+
+function startFallbackSynth(){
+  try{
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(audioCtx.state === "suspended") audioCtx.resume();
+    if(synthTimer) return;
+    synthGain = audioCtx.createGain();
+    synthGain.gain.value = isMuted ? 0 : 0.045;
+    synthGain.connect(audioCtx.destination);
+    const notes = [261.63, 329.63, 392.00, 493.88, 523.25, 392.00, 329.63, 293.66];
+    let step = 0;
+    const playNote = () => {
+      if(!audioCtx || isMuted) return;
+      const osc = audioCtx.createOscillator();
+      const noteGain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
+      noteGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      noteGain.gain.exponentialRampToValueAtTime(0.6, audioCtx.currentTime + 0.12);
+      noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.1);
+      osc.connect(noteGain);
+      noteGain.connect(synthGain);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1.15);
+      step++;
+    };
+    playNote();
+    synthTimer = setInterval(playNote, 950);
+  }catch(e){}
+}
+
+function stopFallbackSynth(){
+  if(synthTimer){ clearInterval(synthTimer); synthTimer = null; }
+}
+
+const musicWidget = document.getElementById("musicWidget");
+const musicCanvas = document.getElementById("musicVisualizer");
+const musicCtx = musicCanvas.getContext("2d");
+const musicTrackLabel = document.getElementById("musicTrack");
+const musicStatus = document.getElementById("musicStatus");
+const musicMute = document.getElementById("musicMute");
+const musicSmaller = document.getElementById("musicSmaller");
+const musicLarger = document.getElementById("musicLarger");
+const musicCollapse = document.getElementById("musicCollapse");
+const musicRestoreFloating = document.getElementById("musicRestoreFloating");
+const ytFallback = document.getElementById("ytFallback");
+const ytDirectLink = document.getElementById("ytDirectLink");
+const ytNextBtn = document.getElementById("ytNextBtn");
+
+function setPlayerSize(size){
+  musicWidget.classList.remove("is-mini","is-large","is-hidden");
+  if(size === "mini") musicWidget.classList.add("is-mini");
+  if(size === "large") musicWidget.classList.add("is-large");
+}
+musicSmaller.addEventListener("click",()=>setPlayerSize("mini"));
+musicLarger.addEventListener("click",()=>{
+  if(musicWidget.classList.contains("is-mini")) setPlayerSize("normal");
+  else setPlayerSize("large");
+});
+musicCollapse.addEventListener("click",()=>{
+  musicWidget.classList.add("is-hidden");
+  musicRestoreFloating.classList.add("show");
+});
+musicRestoreFloating.addEventListener("click",()=>{
+  musicWidget.classList.remove("is-hidden");
+  musicRestoreFloating.classList.remove("show");
+});
+ytNextBtn.addEventListener("click",()=>playFromActivePlaylist());
+
+function drawVisualizer(){
+  if (visualFrame) cancelAnimationFrame(visualFrame);
+  const draw=()=>{
+    visualFrame=requestAnimationFrame(draw);
+    visualPhase += isMuted ? 0.015 : 0.09;
+    const w=musicCanvas.width,h=musicCanvas.height;
+    musicCtx.clearRect(0,0,w,h);
+    const count=24,gap=4,barW=(w-gap*(count-1))/count;
+    for(let i=0;i<count;i++){
+      const wave=(Math.sin(visualPhase+i*.58)+1)/2;
+      const wave2=(Math.sin(visualPhase*.63+i*.27)+1)/2;
+      const barH=isMuted ? 4 : (4+wave*wave2*(h-10));
+      musicCtx.fillStyle=`hsl(${185+i*2.2} 85% 65%)`;
+      musicCtx.fillRect(i*(barW+gap),h-barH,barW,barH);
+    }
+  };
+  draw();
+}
+
+function setMusicLabel(track,status){
+  musicTrackLabel.textContent=track;
+  musicStatus.textContent=status;
+}
+
+function pickRandom(list,lastIndex){
+  if(list.length===1)return 0;
+  let index=Math.floor(Math.random()*list.length);
+  if(index===lastIndex) index=(index+1+Math.floor(Math.random()*(list.length-1)))%list.length;
+  return index;
+}
+
+function playVideo(video){
+  if(!video)return;
+  pendingVideo=video;
+  ytDirectLink.href = "https://www.youtube.com/watch?v=" + video.id;
+  ytFallback.classList.remove("active");
+  setMusicLabel(video.title,"Memuat...");
+  drawVisualizer();
+
+  if(musicWidget.classList.contains("is-mini")){
+    setPlayerSize("normal");
+  }
+
+  if(ytReady && ytPlayer && typeof ytPlayer.loadVideoById === "function"){
+    try{
+      ytPlayer.loadVideoById(video.id);
+      if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
+      setMusicLabel(video.title,"YouTube");
+    }catch(e){
+      handleEmbedBlocked(video);
+    }
+  }else{
+    loadYouTubeAPI();
+  }
+}
+
+function handleEmbedBlocked(video){
+  ytFallback.classList.add("active");
+  setMusicLabel(video ? video.title : "Synth Audio","Mode Lokal");
+  startFallbackSynth();
+}
+
+function playFromActivePlaylist(){
+  if(activePlaylistType==="category"){
+    const index=pickRandom(categoryVideos,lastCategoryVideo);
+    lastCategoryVideo=index;
+    playVideo(categoryVideos[index]);
+  }else{
+    const index=pickRandom(detailVideos,lastDetailVideo);
+    lastDetailVideo=index;
+    playVideo(detailVideos[index]);
+  }
+}
+
+function playCategoryMusic(){
+  activePlaylistType="category";
+  playFromActivePlaylist();
+}
+
+function playRandomMusic(){
+  activePlaylistType="detail";
+  playFromActivePlaylist();
+}
+
+function loadYouTubeAPI(){
+  if(window.YT && window.YT.Player){createYouTubePlayer();return;}
+  if(document.getElementById("youtube-api-script"))return;
+  const tag=document.createElement("script");
+  tag.id="youtube-api-script";
+  tag.src="https://www.youtube.com/iframe_api";
+  tag.onerror=()=>handleEmbedBlocked(pendingVideo);
+  document.head.appendChild(tag);
+}
+
+window.onYouTubeIframeAPIReady=function(){createYouTubePlayer();};
+
+function createYouTubePlayer(){
+  if(ytPlayer)return;
+  const isHttp = /^https?:$/i.test(window.location.protocol) && window.location.origin !== "null";
+  const playerVars = {
+    autoplay: 1,
+    playsinline: 1,
+    controls: 1,
+    rel: 0,
+    modestbranding: 1
+  };
+  if(isHttp){
+    playerVars.origin = window.location.origin;
+  }
+
+  ytPlayer=new YT.Player("youtubePlayer",{
+    width:"100%",
+    height:"100%",
+    host:"https://www.youtube-nocookie.com",
+    videoId:pendingVideo?pendingVideo.id:categoryVideos[0].id,
+    playerVars:playerVars,
+    events:{
+      onReady:(event)=>{
+        ytReady=true;
+        if(pendingVideo){
+          event.target.loadVideoById(pendingVideo.id);
+          if(isMuted) event.target.mute();
+          setMusicLabel(pendingVideo.title,"Aktif");
+        }
+      },
+      onStateChange:(event)=>{
+        if(event.data===YT.PlayerState.PLAYING){
+          stopFallbackSynth();
+          ytFallback.classList.remove("active");
+          musicStatus.textContent="Memutar";
+        }else if(event.data===YT.PlayerState.ENDED){
+          playFromActivePlaylist();
+        }else if(event.data===YT.PlayerState.PAUSED){
+          musicStatus.textContent="Dijeda";
+        }
+      },
+      onError:()=>{
+        handleEmbedBlocked(pendingVideo);
+      }
+    }
+  });
+}
+
+musicMute.addEventListener("click",()=>{
+  isMuted = !isMuted;
+  musicMute.textContent = isMuted ? "Unmute" : "Mute";
+  musicMute.setAttribute("aria-pressed", String(isMuted));
+
+  if(ytReady && ytPlayer && typeof ytPlayer.mute === "function"){
+    if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
+  }
+  if(synthGain && audioCtx){
+    synthGain.gain.setValueAtTime(isMuted ? 0 : 0.045, audioCtx.currentTime);
+  }
+});
+
+// Seret pemutar musik dengan menarik bagian judulnya
+(()=>{
+  const handle=document.getElementById("musicDrag");
+  let dragging=false, startX=0, startY=0, originX=0, originY=0;
+  handle.addEventListener("pointerdown",e=>{
+    if(e.target.closest("button")) return;
+    dragging=true; startX=e.clientX; startY=e.clientY;
+    const r=musicWidget.getBoundingClientRect();
+    originX=r.left; originY=r.top;
+    handle.setPointerCapture(e.pointerId);
+  });
+  handle.addEventListener("pointermove",e=>{
+    if(!dragging)return;
+    const x=Math.max(0,Math.min(window.innerWidth-musicWidget.offsetWidth,originX+e.clientX-startX));
+    const y=Math.max(0,Math.min(window.innerHeight-musicWidget.offsetHeight,originY+e.clientY-startY));
+    musicWidget.style.left=x+"px"; musicWidget.style.top=y+"px";
+    musicWidget.style.right="auto"; musicWidget.style.bottom="auto";
+  });
+  handle.addEventListener("pointerup",()=>dragging=false);
+  handle.addEventListener("pointercancel",()=>dragging=false);
+})();
+
+document.querySelectorAll('.phone-card .symbol img').forEach(img=>{
+  img.addEventListener('error',()=>{img.style.display='none';img.parentElement.textContent='📱';});
+});
+
+function showSection(id){
+  document.querySelectorAll('.section,.hero,.menu').forEach(x=>x.classList.remove('active'));
+  if(id==='home'){
+    document.getElementById('home').classList.add('active');
+    document.getElementById('menu').classList.add('active');
+    document.getElementById('phoneDetail').classList.remove('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    return;
+  }
+  const target = document.getElementById(id);
+  playCategoryMusic();
+  target.classList.add('active');
+  document.getElementById('phoneDetail').classList.remove('active');
+  requestAnimationFrame(()=>target.scrollIntoView({behavior:'smooth',block:'start'}));
+}
+
+function showPhone(id){
+  playRandomMusic();
+  const p=data[id],el=document.getElementById('phoneDetail');
+  el.innerHTML='<h3>'+p.name+'</h3><p class="note">'+p.note+'</p><div class="spec-grid">'+
+    p.specs.map(s=>'<div class="spec"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>').join('')+
+    '</div><div class="detail-actions"><button class="detail-back" type="button" onclick="showPhoneList()">← Kembali ke daftar HP</button></div>';
+  el.classList.add('active');
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function showAccessoryDetail(){
+  playRandomMusic();
+}
+
+function showPhoneList(){
+  const detail=document.getElementById('phoneDetail');
+  detail.classList.remove('active');
+  const list=document.querySelector('#phones .phone-grid');
+  requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
+}
+</script>
+</body>
+</html>
