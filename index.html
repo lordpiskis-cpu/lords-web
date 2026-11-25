@@ -261,6 +261,8 @@ footer{border-top:1px solid var(--line);color:#997a7a;text-align:center;padding:
     <span class="music-brand">LORD'S AUDIO</span>
     <span class="music-status" id="musicStatus">Siap</span>
     <span class="music-tools">
+      <!-- TOMBOL GANTI LAGU BARU DITAMBAHKAN DI SINI -->
+      <button class="music-size" id="musicNext" type="button" aria-label="Ganti lagu berikutnya" title="Ganti Lagu">⏭</button>
       <button class="music-size" id="musicSmaller" type="button" aria-label="Mode mini" title="Mode Mini">−</button>
       <button class="music-size" id="musicLarger" type="button" aria-label="Perbesar pemutar" title="Tampilkan Video">+</button>
       <button class="music-size" id="musicCollapse" type="button" aria-label="Sembunyikan panel" title="Sembunyikan">×</button>
@@ -399,6 +401,7 @@ const musicCtx = musicCanvas.getContext("2d");
 const musicTrackLabel = document.getElementById("musicTrack");
 const musicStatus = document.getElementById("musicStatus");
 const musicMute = document.getElementById("musicMute");
+const musicNext = document.getElementById("musicNext"); // Event tombol ganti lagu
 const musicSmaller = document.getElementById("musicSmaller");
 const musicLarger = document.getElementById("musicLarger");
 const musicCollapse = document.getElementById("musicCollapse");
@@ -426,6 +429,7 @@ musicRestoreFloating.addEventListener("click",()=>{
   musicRestoreFloating.classList.remove("show");
 });
 ytNextBtn.addEventListener("click",()=>playFromActivePlaylist());
+musicNext.addEventListener("click",()=>playFromActivePlaylist()); // Menghubungkan fungsi tombol ganti lagu
 
 function drawVisualizer(){
   if (visualFrame) cancelAnimationFrame(visualFrame);
