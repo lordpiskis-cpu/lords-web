@@ -48,6 +48,38 @@ footer{border-top:1px solid var(--line);color:#8794aa;text-align:center;padding:
 .reflex-box.wait{background:#451219;border-color:#f87171}
 .reflex-box.go{background:#0d3b2e;border-color:#34d399}
 
+/* Audio Ranking Section */
+.disclaimer-card{background:linear-gradient(145deg,#17243a,#0e1523);border:1px solid var(--line);border-radius:20px;padding:26px;max-width:660px;margin:10px auto;text-align:center}
+.disclaimer-badge{display:inline-block;padding:5px 12px;border-radius:999px;background:rgba(114,227,255,.12);border:1px solid rgba(114,227,255,.35);color:var(--accent);font-size:.75rem;font-weight:800;letter-spacing:.12em;margin-bottom:14px}
+.disclaimer-card h3{margin:0 0 12px;font-size:1.35rem}
+.disclaimer-card p{margin:0 0 22px;color:var(--muted);line-height:1.65;font-size:.96rem}
+.disclaimer-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{border:1px solid var(--accent);background:var(--accent);color:#060912;border-radius:999px;padding:11px 22px;font-weight:700;cursor:pointer;transition:.2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(114,227,255,.25)}
+.rank-group{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:18px}
+.rank-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;border-radius:999px;background:rgba(114,227,255,.12);border:1px solid rgba(114,227,255,.3);color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.08em;margin-bottom:14px}
+.rank-badge.silver{background:rgba(155,140,255,.14);border-color:rgba(155,140,255,.35);color:var(--accent2)}
+.rank-item{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#0c1320;border:1px solid #202d40;border-radius:16px;padding:16px 18px;color:var(--text);text-align:left;cursor:pointer;transition:.2s}
+.rank-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rank-item-left{display:flex;align-items:center;gap:14px}
+.rank-thumb{width:54px;height:54px;border-radius:12px;background:linear-gradient(140deg,#243c5d,#111827);display:grid;place-items:center;overflow:hidden;flex-shrink:0}
+.rank-thumb img{width:100%;height:100%;object-fit:contain;padding:4px}
+.rank-item h4{margin:0 0 4px;font-size:1.12rem}
+.rank-item p{margin:0;color:var(--muted);font-size:.84rem}
+.tie-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:12px 0;color:var(--accent);font-weight:900;font-size:1.3rem;letter-spacing:.1em}
+.tie-divider::before,.tie-divider::after{content:"";height:1px;flex:1;background:var(--line)}
+.tie-divider span{padding:2px 14px;border-radius:999px;background:#172235;border:1px solid var(--line);font-size:.85rem}
+.audio-score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+@media(max-width:700px){.audio-score-grid{grid-template-columns:1fr}}
+.audio-score-card{background:#0c1320;border:1px solid #202d40;border-radius:14px;padding:15px}
+.audio-score-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.audio-score-head b{font-size:.82rem;color:var(--accent);letter-spacing:.03em}
+.score-pill{background:rgba(114,227,255,.14);border:1px solid rgba(114,227,255,.35);color:var(--accent);font-weight:800;font-size:.82rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.audio-score-card p{margin:0;font-size:.9rem;line-height:1.55;color:#dbe4f3}
+.audio-caution{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.32);border-radius:14px;padding:15px}
+.audio-caution b{display:block;color:#fca5a5;font-size:.82rem;letter-spacing:.04em;margin-bottom:6px}
+.audio-caution p{margin:0;font-size:.92rem;line-height:1.55;color:#f3d4d4}
+
 #musicRestoreFloating{display:none;position:fixed;right:14px;bottom:16px;z-index:10000;border:1px solid #42536d;background:#17243a;color:#72e3ff;border-radius:50%;width:46px;height:46px;font-size:20px;box-shadow:0 8px 24px #0008;cursor:pointer}
 #musicRestoreFloating.show{display:block}
 
@@ -106,7 +138,8 @@ footer{border-top:1px solid var(--line);color:#8794aa;text-align:center;padding:
 <section id="menu" class="menu">
 <button class="menu-card" onclick="showSection('phones')"><span class="num">01 / SMARTPHONE</span><h3>HP yang Pernah Saya Review</h3><p>Lihat spesifikasi, detail kamera, layar, performa, baterai, dan fitur penting lainnya.</p><span class="arrow">↗</span></button>
 <button class="menu-card" onclick="showSection('accessories')"><span class="num">02 / GADGET GEAR</span><h3>Aksesoris Gadget yang Pernah Saya Review</h3><p>Koleksi review aksesoris gadget. Bagian ini sengaja disiapkan kosong untuk ditambahkan nanti.</p><span class="arrow">↗</span></button>
-<button class="menu-card wide" onclick="showSection('minigames')"><span class="num">03 / ARCADE ZONE</span><h3>Mini game</h3><p>Mainkan berbagai pilihan mini game seru langsung di browser.</p><span class="arrow">↗</span></button>
+<button class="menu-card" onclick="showSection('minigames')"><span class="num">03 / ARCADE ZONE</span><h3>Mini game</h3><p>Mainkan berbagai pilihan mini game seru langsung di browser.</p><span class="arrow">↗</span></button>
+<button class="menu-card" onclick="showSection('audiorank')"><span class="num">04 / AUDIO RANKING</span><h3>Rangking Audio HP Terbaik yang Pernah Saya Review</h3><p>Peringkat kualitas speaker HP berdasarkan pengujian spacial sound, bass, dan kejernihan vokal.</p><span class="arrow">↗</span></button>
 </section>
 <section id="phones" class="section">
 <div class="section-head"><h2>HP yang Pernah Saya Review</h2><button class="back" onclick="showSection('home')">← Kembali</button></div>
@@ -158,6 +191,69 @@ footer{border-top:1px solid var(--line);color:#8794aa;text-align:center;padding:
   <div id="gameStage"></div>
 </div>
 </section>
+
+<!-- 04: RANGKING AUDIO HP -->
+<section id="audiorank" class="section">
+<div class="section-head"><h2>Rangking Audio HP</h2><button class="back" onclick="showSection('home')">← Kembali</button></div>
+
+<!-- DISCLAIMER -->
+<div id="audioDisclaimer" class="disclaimer-card">
+  <span class="disclaimer-badge">DISCLAIMER</span>
+  <h3>Catatan Sebelum Melihat Peringkat</h3>
+  <p><strong>NOTE:</strong> Rangking ini bersifat subjektif dan bisa berbeda-beda pada setiap orang. Penilaian serta skor berikut murni berdasarkan pendapat, pengujian langsung, dan opini pribadi saya.</p>
+  <div class="disclaimer-actions">
+    <button class="back" type="button" onclick="showSection('home')">← Back</button>
+    <button class="btn-primary" type="button" onclick="proceedAudioRanking()">Lanjut →</button>
+  </div>
+</div>
+
+<!-- DAFTAR PERINGKAT AUDIO -->
+<div id="audioRankList" style="display:none">
+  <div class="rank-group">
+    <div class="rank-badge">🏆 PERINGKAT 1 (SERI)</div>
+    <button class="rank-item" type="button" onclick="showAudioDetail('ip11')">
+      <div class="rank-item-left">
+        <div class="rank-thumb"><img src="https://media-ik.croma.com/Croma%20Assets/Communication/Mobiles/Images/230106_nxtpnk.png" alt="Apple iPhone 11" loading="lazy"></div>
+        <div>
+          <h4>Apple iPhone 11</h4>
+          <p>Ketuk untuk lihat detail skor Spacial Sound, Bass &amp; Vokal</p>
+        </div>
+      </div>
+      <span style="color:var(--accent);font-size:1.3rem">↗</span>
+    </button>
+
+    <div class="tie-divider"><span>- (SERI) -</span></div>
+
+    <button class="rank-item" type="button" onclick="showAudioDetail('s22')">
+      <div class="rank-item-left">
+        <div class="rank-thumb"><img src="https://www.cell2get.com/cdn/shop/files/s22black_b440531b-dc35-403c-a457-935554ae11d9.jpg?v=1737990516" alt="Samsung Galaxy S22+" loading="lazy"></div>
+        <div>
+          <h4>Samsung Galaxy S22+</h4>
+          <p>Ketuk untuk lihat detail skor Spacial Sound, Bass &amp; Vokal</p>
+        </div>
+      </div>
+      <span style="color:var(--accent);font-size:1.3rem">↗</span>
+    </button>
+  </div>
+
+  <div class="rank-group">
+    <div class="rank-badge silver">🥈 PERINGKAT 2</div>
+    <button class="rank-item" type="button" onclick="showAudioDetail('ip7')">
+      <div class="rank-item-left">
+        <div class="rank-thumb"><img src="https://bf1af2.akinoncloudcdn.com/products/2024/11/20/198142/9e9e9422-4f1b-4a7d-8459-a7187bb6ce22_size3840_cropCenter.jpg" alt="Apple iPhone 7" loading="lazy"></div>
+        <div>
+          <h4>Apple iPhone 7</h4>
+          <p>Ketuk untuk lihat detail skor Spacial Sound, Bass &amp; Vokal</p>
+        </div>
+      </div>
+      <span style="color:var(--accent);font-size:1.3rem">↗</span>
+    </button>
+  </div>
+</div>
+
+<!-- DETAIL SKOR AUDIO HP -->
+<div id="audioDetail" class="detail"></div>
+</section>
 </main>
 
 <div class="music-widget is-mini" id="musicWidget" aria-label="Pemutar musik Lord's Web">
@@ -202,6 +298,75 @@ ip7:{name:"Apple iPhone 7",note:"Apple tidak selalu mempublikasikan ukuran fisik
 ip11:{name:"Apple iPhone 11",note:"Apple tidak menyebut ukuran sensor kamera dan RAM pada lembar spesifikasi resminya; ukuran sensor di bawah adalah perkiraan format optik yang umum dirujuk.",specs:[
 ["Jaringan","GSM / CDMA / HSPA / EVDO / LTE; Nano-SIM + eSIM; tidak mendukung 5G"],["Chipset","Apple A13 Bionic (7 nm+) dengan Neural Engine generasi ke-3"],["CPU & GPU","CPU hexa-core; Apple-designed GPU quad-core"],["RAM & penyimpanan","4 GB RAM; 64 / 128 / 256 GB; tanpa microSD"],["Layar","6,1 inci Liquid Retina IPS LCD, 1792 × 828 (326 ppi), True Tone, wide color (P3), 625 nits tipikal"],["Kamera utama (wide)","12 MP, f/1.8, 26 mm ekuivalen, focus pixels PDAF, OIS; sensor sekitar 1/2.55 inci; piksel 1.4 µm"],["Kamera ultrawide","12 MP, f/2.4, 13 mm ekuivalen, bidang pandang 120°; sensor sekitar 1/3.6 inci; piksel 1.0 µm; tanpa OIS/autofokus"],["Kamera depan","12 MP TrueDepth, f/2.2, 23 mm ekuivalen; sensor sekitar 1/3.6 inci; piksel 1.0 µm; Face ID"],["Video","Belakang 4K 24/30/60 fps; 1080p hingga 240 fps; extended dynamic range hingga 60 fps; audio zoom; depan 4K hingga 60 fps"],["Baterai & pengisian","Apple menyatakan hingga 17 jam pemutaran video; pengisian nirkabel Qi; fast-charge dengan adaptor yang sesuai (adaptor dijual terpisah saat rilis)"],["Audio & konektivitas","Stereo speaker; Lightning; Wi-Fi 6 (802.11ax); Bluetooth 5.0; NFC; Ultra Wideband U1"],["Keamanan & ketahanan","Face ID; IP68 (maks. 2 m hingga 30 menit saat baru, kondisi uji); kaca depan/belakang"],["Dimensi & bobot","150,9 × 75,7 × 8,3 mm; 194 gram"],["Sistem saat rilis","iOS 13"]
 ]}
+};
+
+const audioRankData = {
+  ip11: {
+    name: "Apple iPhone 11",
+    rankLabel: "Peringkat 1 (Seri)",
+    scores: [
+      {
+        title: "Spacial Sound",
+        rate: "7 / 10",
+        reason: "Kami menemukan bahwa spacial cukup bagus dan sound stage cukup lebar."
+      },
+      {
+        title: "Kedalaman Bass",
+        rate: "8 / 10",
+        reason: "Produksi bass sangat bagus dan dalam, effect bass punchy sangat terasa, dan karakter suaranya warm."
+      },
+      {
+        title: "Speaking Voice Test",
+        rate: "7,5 / 10",
+        reason: "Saat mendengarkan vlog atau podcast suara terdengar jelas dan lantang."
+      }
+    ],
+    caution: "Speaker iPhone 11 agak kurang sinkron (atas 30%, bawah 50%), dan pada volume tinggi agak kurang jernih."
+  },
+  s22: {
+    name: "Samsung Galaxy S22+",
+    rankLabel: "Peringkat 1 (Seri)",
+    scores: [
+      {
+        title: "Spacial Sound",
+        rate: "8,3 / 10",
+        reason: "Sound stage sangat bagus saat memainkan musik, nonton anime atau film, dan speakernya minim distorsi saat full volume."
+      },
+      {
+        title: "Kedalaman Bass",
+        rate: "6,8 / 10",
+        reason: "Bass cenderung tipis dan kurang menghentak dalam preset bawaan dan Dolby menyala, namun karena ini Android jika menggunakan EQ pihak ke-3 bass-nya akan lebih terasa. Karakter suara cenderung agak bright."
+      },
+      {
+        title: "Speaking Voice Test",
+        rate: "8,5 / 10",
+        reason: "Berkat spacial yang bagus, saat kami memutar vlog atau podcast suara seperti berada di sebelah persis—kami bisa bilang sangat imersif."
+      }
+    ],
+    caution: "Samsung Galaxy S22+ secara keseluruhan bagus apalagi spatial sound-nya, namun bass-nya cenderung kurang nampol dan kick bass-nya sangat tipis."
+  },
+  ip7: {
+    name: "Apple iPhone 7",
+    rankLabel: "Peringkat 2",
+    scores: [
+      {
+        title: "Spacial Sound",
+        rate: "5 / 10",
+        reason: "Sound stage cenderung tipis dan kurang bagus, serta distorsi saat volume full."
+      },
+      {
+        title: "Kedalaman Bass",
+        rate: "6,4 / 10",
+        reason: "Kedalaman bass yang dihasilkan kurang dalam, namun tendangan bass-nya sangat terasa khas iPhone, dan karakter suara cenderung bright."
+      },
+      {
+        title: "Speaking Voice Test",
+        rate: "7 / 10",
+        reason: "Saat mendengarkan podcast atau vlog suaranya cukup jelas dan lantang."
+      }
+    ],
+    caution: "HP ini bagus buat mendengarkan musik kasual, namun karena teknologinya yang sudah tua maka standar audio sekarang sudah mulai agak tinggi sehingga iPhone 7 bagi sebagian orang agak kurang untuk speakernya saat ini."
+  }
 };
 
 const categoryVideos = [
@@ -477,7 +642,7 @@ musicMute.addEventListener("click",()=>{
   handle.addEventListener("pointercancel",()=>dragging=false);
 })();
 
-document.querySelectorAll('.phone-card .symbol img').forEach(img=>{
+document.querySelectorAll('.phone-card .symbol img, .rank-thumb img').forEach(img=>{
   img.addEventListener('error',()=>{img.style.display='none';img.parentElement.textContent='📱';});
 });
 
@@ -493,9 +658,49 @@ function showSection(id){
   }
   const target = document.getElementById(id);
   if(id!=='minigames') playCategoryMusic();
+  if(id==='audiorank'){
+    document.getElementById('audioDisclaimer').style.display='block';
+    document.getElementById('audioRankList').style.display='none';
+    document.getElementById('audioDetail').classList.remove('active');
+  }
   target.classList.add('active');
   document.getElementById('phoneDetail').classList.remove('active');
   requestAnimationFrame(()=>target.scrollIntoView({behavior:'smooth',block:'start'}));
+}
+
+function proceedAudioRanking(){
+  document.getElementById('audioDisclaimer').style.display='none';
+  document.getElementById('audioRankList').style.display='block';
+  document.getElementById('audioDetail').classList.remove('active');
+}
+
+function showAudioDetail(id){
+  playRandomMusic();
+  const item = audioRankData[id];
+  const el = document.getElementById('audioDetail');
+  el.innerHTML =
+    '<div class="rank-badge" style="margin-bottom:10px">' + item.rankLabel + '</div>' +
+    '<h3>' + item.name + '</h3>' +
+    '<p class="note">Detail skor pengujian audio berdasarkan pengalaman penggunaan langsung:</p>' +
+    '<div class="audio-score-grid">' +
+      item.scores.map(s =>
+        '<div class="audio-score-card">' +
+          '<div class="audio-score-head"><b>' + s.title + '</b><span class="score-pill">' + s.rate + '</span></div>' +
+          '<p>' + s.reason + '</p>' +
+        '</div>'
+      ).join('') +
+    '</div>' +
+    '<div class="audio-caution"><b>HAL YANG PERLU DIPERHATIKAN</b><p>' + item.caution + '</p></div>' +
+    '<div class="detail-actions"><button class="detail-back" type="button" onclick="backToAudioList()">← Kembali ke daftar rangking</button></div>';
+  el.classList.add('active');
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function backToAudioList(){
+  const detail = document.getElementById('audioDetail');
+  detail.classList.remove('active');
+  const list = document.getElementById('audioRankList');
+  requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
 }
 
 function showPhone(id){
