@@ -17,10 +17,26 @@ header{max-width:1120px;margin:auto;padding:28px 22px 12px;display:flex;align-it
 main{max-width:1120px;margin:auto;padding:20px 22px 90px}.hero{text-align:center;padding:54px 10px 42px}.eyebrow{color:var(--accent);letter-spacing:.22em;font-size:.72rem;font-weight:800}.hero h2{font-size:clamp(2rem,6vw,4rem);margin:14px 0 12px}.hero p{color:var(--muted);max-width:650px;margin:auto;line-height:1.7}
 .menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 38px}.menu-card{border:1px solid var(--line);background:linear-gradient(145deg,#240d0d,#120505);border-radius:22px;padding:28px;min-height:190px;text-align:left;color:var(--text);cursor:pointer;transition:.25s;position:relative;overflow:hidden}.menu-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 15px 45px rgba(255,26,26,.15)}.menu-card .num{color:var(--accent);font-size:.75rem;letter-spacing:.18em}.menu-card h3{font-size:1.55rem;margin:16px 0 8px}.menu-card p{color:var(--muted);line-height:1.55;margin:0}.menu-card .arrow{position:absolute;right:24px;bottom:22px;font-size:1.7rem;color:var(--accent)}
 .menu-card.wide{grid-column:span 2}
-.section{display:none;animation:rise .35s ease}.section.active{display:block}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 22px}.section-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0}.back{border:1px solid var(--line);background:#120707;color:var(--text);border-radius:999px;padding:10px 16px;cursor:pointer}.phone-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.phone-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;cursor:pointer;transition:.2s}.phone-card:hover{border-color:var(--accent);transform:translateY(-3px)}.phone-card .symbol{height:150px;border-radius:13px;background:linear-gradient(140deg,#3a1010,#120707);display:grid;place-items:center;overflow:hidden;margin-bottom:15px}.phone-card .symbol img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}.phone-card h3{margin:0 0 6px}.phone-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
-.detail{display:none;margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}.detail.active{display:block;animation:rise .3s}.detail-actions{display:flex;justify-content:flex-start;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.detail-back{border:1px solid #4a2020;background:#240d0d;color:var(--text);border-radius:999px;padding:11px 17px;cursor:pointer;transition:.2s}.detail-back:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}.detail h3{font-size:1.5rem;margin:0 0 8px}.detail .note{color:var(--muted);line-height:1.6;margin:0 0 18px}.spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.spec{background:#0a0303;border:1px solid #2b1111;border-radius:12px;padding:13px}.spec b{display:block;font-size:.76rem;color:var(--accent);margin-bottom:6px;letter-spacing:.04em}.spec span{font-size:.92rem;line-height:1.5}.empty{border:1px dashed #592222;background:#0d0404;border-radius:20px;min-height:240px;display:grid;place-items:center;text-align:center;padding:25px;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:1.2rem;margin-bottom:8px}
+.section{display:none;animation:rise .35s ease}.section.active{display:block}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 22px}.section-head h2{font-size:clamp(1.6rem,4vw,2.4rem);margin:0}.back{border:1px solid var(--line);background:#120707;color:var(--text);border-radius:999px;padding:10px 16px;cursor:pointer}.phone-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.phone-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;cursor:pointer;transition:.2s;text-align:left;color:var(--text)}.phone-card:hover{border-color:var(--accent);transform:translateY(-3px)}.phone-card .symbol{height:150px;border-radius:13px;background:linear-gradient(140deg,#3a1010,#120707);display:grid;place-items:center;overflow:hidden;margin-bottom:15px}.phone-card .symbol img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}.phone-card h3{margin:0 0 6px}.phone-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+
+/* Split card untuk aksesoris: klik gambar ke toko, klik tulisan ke spesifikasi */
+.acc-split-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;transition:.2s;display:flex;flex-direction:column;gap:14px}
+.acc-split-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.acc-img-trigger{display:grid;place-items:center;width:100%;height:150px;border-radius:13px;background:linear-gradient(140deg,#3a1010,#120707);overflow:hidden;text-decoration:none;border:1px solid transparent;transition:.2s;position:relative}
+.acc-img-trigger:hover{border-color:var(--accent)}
+.acc-img-trigger img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+.acc-shop-badge{position:absolute;right:8px;bottom:8px;background:rgba(5,5,5,.85);border:1px solid rgba(255,26,26,.45);color:var(--text);font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:999px;pointer-events:none}
+.acc-text-trigger{background:none;border:0;padding:0;margin:0;text-align:left;color:var(--text);cursor:pointer;display:block;width:100%}
+.acc-text-trigger h3{margin:0 0 6px;font-size:1.18rem;transition:.2s}
+.acc-text-trigger:hover h3{color:var(--accent)}
+.acc-text-trigger p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+.acc-hint{display:inline-block;margin-top:8px;font-size:.76rem;color:var(--accent);font-weight:700}
+.shop-link-btn{display:inline-flex;align-items:center;gap:6px;margin-left:10px;border:1px solid var(--accent);background:rgba(255,26,26,.14);color:var(--accent);border-radius:999px;padding:10px 17px;text-decoration:none;font-size:.9rem;font-weight:700;transition:.2s}
+.shop-link-btn:hover{background:var(--accent);color:#030101}
+
+.detail{display:none;margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}.detail.active{display:block;animation:rise .3s}.detail-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}.detail-back{border:1px solid #4a2020;background:#240d0d;color:var(--text);border-radius:999px;padding:11px 17px;cursor:pointer;transition:.2s}.detail-back:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}.detail h3{font-size:1.5rem;margin:0 0 8px}.detail .note{color:var(--muted);line-height:1.6;margin:0 0 18px}.spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.spec{background:#0a0303;border:1px solid #2b1111;border-radius:12px;padding:13px}.spec b{display:block;font-size:.76rem;color:var(--accent);margin-bottom:6px;letter-spacing:.04em}.spec span{font-size:.92rem;line-height:1.5}.empty{border:1px dashed #592222;background:#0d0404;border-radius:20px;min-height:240px;display:grid;place-items:center;text-align:center;padding:25px;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:1.2rem;margin-bottom:8px}
 footer{border-top:1px solid var(--line);color:#997a7a;text-align:center;padding:24px;font-size:.8rem}
-@media(max-width:700px){.menu{grid-template-columns:1fr}.menu-card.wide{grid-column:span 1}.phone-grid{grid-template-columns:1fr}.phone-card{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center}.phone-card .symbol{height:112px;margin:0}.spec-grid{grid-template-columns:1fr}header{padding-top:20px}.hero{padding-top:38px}}
+@media(max-width:700px){.menu{grid-template-columns:1fr}.menu-card.wide{grid-column:span 1}.phone-grid{grid-template-columns:1fr}.phone-card{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center}.phone-card .symbol{height:112px;margin:0}.acc-split-card{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center}.acc-img-trigger{height:112px}.spec-grid{grid-template-columns:1fr}header{padding-top:20px}.hero{padding-top:38px}}
 
 /* Mini Game Section */
 .game-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -137,7 +153,7 @@ footer{border-top:1px solid var(--line);color:#997a7a;text-align:center;padding:
 </section>
 <section id="menu" class="menu">
 <button class="menu-card" onclick="showSection('phones')"><span class="num">01 / SMARTPHONE</span><h3>HP yang Pernah Saya Review</h3><p>Lihat spesifikasi, detail kamera, layar, performa, baterai, dan fitur penting lainnya.</p><span class="arrow">↗</span></button>
-<button class="menu-card" onclick="showSection('accessories')"><span class="num">02 / GADGET GEAR</span><h3>Aksesoris Gadget yang Pernah Saya Review</h3><p>Koleksi review aksesoris gadget. Bagian ini sengaja disiapkan kosong untuk ditambahkan nanti.</p><span class="arrow">↗</span></button>
+<button class="menu-card" onclick="showSection('accessories')"><span class="num">02 / GADGET GEAR</span><h3>Aksesoris Gadget yang Pernah Saya Review</h3><p>Koleksi review adaptor, kabel, dan aksesoris gadget yang pernah saya uji langsung.</p><span class="arrow">↗</span></button>
 <button class="menu-card" onclick="showSection('minigames')"><span class="num">03 / ARCADE ZONE</span><h3>Mini game</h3><p>Mainkan berbagai pilihan mini game seru langsung di browser.</p><span class="arrow">↗</span></button>
 <button class="menu-card" onclick="showSection('audiorank')"><span class="num">04 / AUDIO RANKING</span><h3>Rangking Audio HP Terbaik yang Pernah Saya Review</h3><p>Peringkat kualitas speaker HP berdasarkan pengujian spacial sound, bass, dan kejernihan vokal.</p><span class="arrow">↗</span></button>
 </section>
@@ -152,7 +168,21 @@ footer{border-top:1px solid var(--line);color:#997a7a;text-align:center;padding:
 </section>
 <section id="accessories" class="section">
 <div class="section-head"><h2>Aksesoris Gadget</h2><button class="back" onclick="showSection('home')">← Kembali</button></div>
-<div class="empty"><div><strong>Belum ada review aksesoris</strong>Konten akan ditambahkan di sini nanti.</div></div>
+<p style="color:var(--muted);margin:0 0 18px;line-height:1.6">Ketuk <b>gambar</b> untuk ke toko pembelian, atau ketuk <b>tulisan</b> untuk melihat spesifikasi lengkapnya.</p>
+<div class="phone-grid">
+<div class="acc-split-card">
+  <a class="acc-img-trigger" href="https://share.google/images/cI9dMOdjl85myyxUI" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="Buka halaman toko pembelian Adaptor T65L">
+    <img src="https://share.google/images/cI9dMOdjl85myyxUI" data-alt-src="https://kiipkiip.com/cdn/shop/files/T65L_1.jpg?v=1729663087" data-alt-src-2="https://kiipkiip.com/cdn/shop/files/G65L_1.jpg?v=1729663087" alt="Adaptor T65L 65W" loading="lazy" data-fallback="🔌">
+    <span class="acc-shop-badge">Toko ↗</span>
+  </a>
+  <button class="acc-text-trigger" type="button" onclick="showAccessory('t65l')">
+    <h3>Adaptor T65L</h3>
+    <p>Model T65L · Fireproof PC · 65W Max</p>
+    <span class="acc-hint">Lihat Spesifikasi →</span>
+  </button>
+</div>
+</div>
+<div id="accessoryDetail" class="detail"></div>
 </section>
 <section id="minigames" class="section">
 <div class="section-head"><h2>Mini game</h2><button class="back" onclick="exitMiniGames()">← Kembali</button></div>
@@ -261,8 +291,6 @@ footer{border-top:1px solid var(--line);color:#997a7a;text-align:center;padding:
     <span class="music-brand">LORD'S AUDIO</span>
     <span class="music-status" id="musicStatus">Siap</span>
     <span class="music-tools">
-      <!-- TOMBOL GANTI LAGU BARU DITAMBAHKAN DI SINI -->
-      <button class="music-size" id="musicNext" type="button" aria-label="Ganti lagu berikutnya" title="Ganti Lagu">⏭</button>
       <button class="music-size" id="musicSmaller" type="button" aria-label="Mode mini" title="Mode Mini">−</button>
       <button class="music-size" id="musicLarger" type="button" aria-label="Perbesar pemutar" title="Tampilkan Video">+</button>
       <button class="music-size" id="musicCollapse" type="button" aria-label="Sembunyikan panel" title="Sembunyikan">×</button>
@@ -302,49 +330,55 @@ ip11:{name:"Apple iPhone 11",note:"iPhone populer dengan sistem dual kamera.",sp
 ]}
 };
 
+const accessoriesData={
+t65l:{name:"Adaptor T65L",shopUrl:"https://share.google/images/cI9dMOdjl85myyxUI",note:"Spesifikasi lengkap adaptor T65L berdasarkan catatan teknis dan lembar spesifikasi model T65L.",specs:[
+["Model","T65L"],["Material","Fireproof PC"],["Input","100–240V~ 50/60Hz 1.2A"],["Output USB-C1","5V-3A, 9V-3A, 12V-3A, 15V-3A, 20V-3A (65W Max; varian serinya hingga 20V-3.5A 70W Max)"],["Output USB-C2","5V-3A, 9V-3A, 12V-3A, 15V-3A, 20V-3A (65W Max; varian serinya hingga 20V-3.5A 70W Max)"],["Output USB-A","5V-3A, 9V-3A, 12V-2.5A, 20V-1.5A (30W Max)"],["Total Output USB-C1 + USB-C2","45W + 20W (65W Max)"],["Total Output USB-C1 + USB-A","45W + 18W (63W Max)"],["Total Output USB-C2 + USB-A","5V-3A (15W Max)"],["Total Output USB-C1 + (USB-C2 + USB-A)","45W + 15W (60W Max)"],["Dimensi & Berat (Seri T65L)","57 × 33.8 × 94.6 mm · Sekitar 129,6 g"]
+]}
+};
+
 const audioRankData = {
-  ip11: {
-    name: "Apple iPhone 11",
-    rankLabel: "Peringkat 1 (Seri)",
-    scores: [
-      { title: "Spacial Sound", rate: "7 / 10", reason: "Kami menemukan bahwa spacial cukup bagus dan sound stage cukup lebar." },
-      { title: "Kedalaman Bass", rate: "8 / 10", reason: "Produksi bass sangat bagus dan dalam, effect bass punchy sangat terasa, dan karakter suaranya warm." },
-      { title: "Speaking Voice Test", rate: "7,5 / 10", reason: "Saat mendengarkan vlog atau podcast suara terdengar jelas dan lantang." }
-    ],
-    caution: "Speaker iPhone 11 agak kurang sinkron (atas 30%, bawah 50%), dan pada volume tinggi agak kurang jernih."
-  },
-  s22: {
-    name: "Samsung Galaxy S22+",
-    rankLabel: "Peringkat 1 (Seri)",
-    scores: [
-      { title: "Spacial Sound", rate: "8,3 / 10", reason: "Sound stage sangat bagus saat memainkan musik, nonton anime atau film, dan speakernya minim distorsi saat full volume." },
-      { title: "Kedalaman Bass", rate: "6,8 / 10", reason: "Bass cenderung tipis dan kurang menghentak dalam preset bawaan, namun bisa dioptimalkan dengan EQ pihak ke-3." },
-      { title: "Speaking Voice Test", rate: "8,5 / 10", reason: "Berkat spacial yang bagus, saat kami memutar vlog atau podcast suara seperti berada di sebelah persis—sangat imersif." }
-    ],
-    caution: "Samsung Galaxy S22+ secara keseluruhan bagus apalagi spatial sound-nya, namun bass-nya cenderung kurang nampol dan kick bass-nya sangat tipis."
-  },
-  ip7: {
-    name: "Apple iPhone 7",
-    rankLabel: "Peringkat 2",
-    scores: [
-      { title: "Spacial Sound", rate: "5 / 10", reason: "Sound stage cenderung tipis dan kurang bagus, serta distorsi saat volume full." },
-      { title: "Kedalaman Bass", rate: "6,4 / 10", reason: "Kedalaman bass kurang dalam, namun tendangan bass-nya sangat terasa khas iPhone." },
-      { title: "Speaking Voice Test", rate: "7 / 10", reason: "Saat mendengarkan podcast atau vlog suaranya cukup jelas dan lantang." }
-    ],
-    caution: "HP ini bagus buat mendengarkan musik kasual, namun karena faktor usia standar audionya sudah mulai tertinggal."
-  }
+ip11: {
+name: "Apple iPhone 11",
+rankLabel: "Peringkat 1 (Seri)",
+scores: [
+{ title: "Spacial Sound", rate: "7 / 10", reason: "Kami menemukan bahwa spacial cukup bagus dan sound stage cukup lebar." },
+{ title: "Kedalaman Bass", rate: "8 / 10", reason: "Produksi bass sangat bagus dan dalam, effect bass punchy sangat terasa, dan karakter suaranya warm." },
+{ title: "Speaking Voice Test", rate: "7,5 / 10", reason: "Saat mendengarkan vlog atau podcast suara terdengar jelas dan lantang." }
+],
+caution: "Speaker iPhone 11 agak kurang sinkron (atas 30%, bawah 50%), dan pada volume tinggi agak kurang jernih."
+},
+s22: {
+name: "Samsung Galaxy S22+",
+rankLabel: "Peringkat 1 (Seri)",
+scores: [
+{ title: "Spacial Sound", rate: "8,3 / 10", reason: "Sound stage sangat bagus saat memainkan musik, nonton anime atau film, dan speakernya minim distorsi saat full volume." },
+{ title: "Kedalaman Bass", rate: "6,8 / 10", reason: "Bass cenderung tipis dan kurang menghentak dalam preset bawaan, namun bisa dioptimalkan dengan EQ pihak ke-3." },
+{ title: "Speaking Voice Test", rate: "8,5 / 10", reason: "Berkat spacial yang bagus, saat kami memutar vlog atau podcast suara seperti berada di sebelah persis—sangat imersif." }
+],
+caution: "Samsung Galaxy S22+ secara keseluruhan bagus apalagi spatial sound-nya, namun bass-nya cenderung kurang nampol dan kick bass-nya sangat tipis."
+},
+ip7: {
+name: "Apple iPhone 7",
+rankLabel: "Peringkat 2",
+scores: [
+{ title: "Spacial Sound", rate: "5 / 10", reason: "Sound stage cenderung tipis dan kurang bagus, serta distorsi saat volume full." },
+{ title: "Kedalaman Bass", rate: "6,4 / 10", reason: "Kedalaman bass kurang dalam, namun tendangan bass-nya sangat terasa khas iPhone." },
+{ title: "Speaking Voice Test", rate: "7 / 10", reason: "Saat mendengarkan podcast atau vlog suaranya cukup jelas dan lantang." }
+],
+caution: "HP ini bagus buat mendengarkan musik kasual, namun karena faktor usia standar audionya sudah mulai tertinggal."
+}
 };
 
 const categoryVideos = [
-  {id:"J4RxO3lRsi0", title:"Track kategori 1"},
-  {id:"LlN8MPS7KQs", title:"Track kategori 2"}
+{id:"J4RxO3lRsi0", title:"Track kategori 1"},
+{id:"LlN8MPS7KQs", title:"Track kategori 2"}
 ];
 const detailVideos = [
-  {id:"QVykEzVZpJQ", title:"Track detail 1"},
-  {id:"_dUL2fH-aOE", title:"Track detail 2"},
-  {id:"7ISuL9RumXs", title:"Track detail 3"},
-  {id:"0fAXF-ZPIAI", title:"Track detail 4"},
-  {id:"r43fnvdlsUU", title:"Track detail 5"}
+{id:"QVykEzVZpJQ", title:"Track detail 1"},
+{id:"_dUL2fH-aOE", title:"Track detail 2"},
+{id:"7ISuL9RumXs", title:"Track detail 3"},
+{id:"0fAXF-ZPIAI", title:"Track detail 4"},
+{id:"r43fnvdlsUU", title:"Track detail 5"}
 ];
 
 let lastCategoryVideo = -1;
@@ -362,37 +396,37 @@ let synthTimer = null;
 let synthGain = null;
 
 function startFallbackSynth(){
-  try{
-    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if(audioCtx.state === "suspended") audioCtx.resume();
-    if(synthTimer) return;
-    synthGain = audioCtx.createGain();
-    synthGain.gain.value = isMuted ? 0 : 0.045;
-    synthGain.connect(audioCtx.destination);
-    const notes = [261.63, 329.63, 392.00, 493.88, 523.25];
-    let step = 0;
-    const playNote = () => {
-      if(!audioCtx || isMuted) return;
-      const osc = audioCtx.createOscillator();
-      const noteGain = audioCtx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
-      noteGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-      noteGain.gain.exponentialRampToValueAtTime(0.6, audioCtx.currentTime + 0.12);
-      noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.1);
-      osc.connect(noteGain);
-      noteGain.connect(synthGain);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 1.15);
-      step++;
-    };
-    playNote();
-    synthTimer = setInterval(playNote, 950);
-  }catch(e){}
+try{
+if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+if(audioCtx.state === "suspended") audioCtx.resume();
+if(synthTimer) return;
+synthGain = audioCtx.createGain();
+synthGain.gain.value = isMuted ? 0 : 0.045;
+synthGain.connect(audioCtx.destination);
+const notes = [261.63, 329.63, 392.00, 493.88, 523.25];
+let step = 0;
+const playNote = () => {
+if(!audioCtx || isMuted) return;
+const osc = audioCtx.createOscillator();
+const noteGain = audioCtx.createGain();
+osc.type = "sine";
+osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
+noteGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+noteGain.gain.exponentialRampToValueAtTime(0.6, audioCtx.currentTime + 0.12);
+noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.1);
+osc.connect(noteGain);
+noteGain.connect(synthGain);
+osc.start();
+osc.stop(audioCtx.currentTime + 1.15);
+step++;
+};
+playNote();
+synthTimer = setInterval(playNote, 950);
+}catch(e){}
 }
 
 function stopFallbackSynth(){
-  if(synthTimer){ clearInterval(synthTimer); synthTimer = null; }
+if(synthTimer){ clearInterval(synthTimer); synthTimer = null; }
 }
 
 const musicWidget = document.getElementById("musicWidget");
@@ -401,7 +435,6 @@ const musicCtx = musicCanvas.getContext("2d");
 const musicTrackLabel = document.getElementById("musicTrack");
 const musicStatus = document.getElementById("musicStatus");
 const musicMute = document.getElementById("musicMute");
-const musicNext = document.getElementById("musicNext"); // Event tombol ganti lagu
 const musicSmaller = document.getElementById("musicSmaller");
 const musicLarger = document.getElementById("musicLarger");
 const musicCollapse = document.getElementById("musicCollapse");
@@ -411,260 +444,298 @@ const ytDirectLink = document.getElementById("ytDirectLink");
 const ytNextBtn = document.getElementById("ytNextBtn");
 
 function setPlayerSize(size){
-  musicWidget.classList.remove("is-mini","is-large","is-hidden");
-  if(size === "mini") musicWidget.classList.add("is-mini");
-  if(size === "large") musicWidget.classList.add("is-large");
+musicWidget.classList.remove("is-mini","is-large","is-hidden");
+if(size === "mini") musicWidget.classList.add("is-mini");
+if(size === "large") musicWidget.classList.add("is-large");
 }
 musicSmaller.addEventListener("click",()=>setPlayerSize("mini"));
 musicLarger.addEventListener("click",()=>{
-  if(musicWidget.classList.contains("is-mini")) setPlayerSize("normal");
-  else setPlayerSize("large");
+if(musicWidget.classList.contains("is-mini")) setPlayerSize("normal");
+else setPlayerSize("large");
 });
 musicCollapse.addEventListener("click",()=>{
-  musicWidget.classList.add("is-hidden");
-  musicRestoreFloating.classList.add("show");
+musicWidget.classList.add("is-hidden");
+musicRestoreFloating.classList.add("show");
 });
 musicRestoreFloating.addEventListener("click",()=>{
-  musicWidget.classList.remove("is-hidden");
-  musicRestoreFloating.classList.remove("show");
+musicWidget.classList.remove("is-hidden");
+musicRestoreFloating.classList.remove("show");
 });
 ytNextBtn.addEventListener("click",()=>playFromActivePlaylist());
-musicNext.addEventListener("click",()=>playFromActivePlaylist()); // Menghubungkan fungsi tombol ganti lagu
 
 function drawVisualizer(){
-  if (visualFrame) cancelAnimationFrame(visualFrame);
-  const draw=()=>{
-    visualFrame=requestAnimationFrame(draw);
-    visualPhase += isMuted ? 0.015 : 0.09;
-    const w=musicCanvas.width,h=musicCanvas.height;
-    musicCtx.clearRect(0,0,w,h);
-    const count=24,gap=4,barW=(w-gap*(count-1))/count;
-    for(let i=0;i<count;i++){
-      const wave=(Math.sin(visualPhase+i*.58)+1)/2;
-      const wave2=(Math.sin(visualPhase*.63+i*.27)+1)/2;
-      const barH=isMuted ? 4 : (4+wave*wave2*(h-10));
-      musicCtx.fillStyle=`hsl(${0+i*1.5} 90% 55%)`;
-      musicCtx.fillRect(i*(barW+gap),h-barH,barW,barH);
-    }
-  };
-  draw();
+if (visualFrame) cancelAnimationFrame(visualFrame);
+const draw=()=>{
+visualFrame=requestAnimationFrame(draw);
+visualPhase += isMuted ? 0.015 : 0.09;
+const w=musicCanvas.width,h=musicCanvas.height;
+musicCtx.clearRect(0,0,w,h);
+const count=24,gap=4,barW=(w-gap*(count-1))/count;
+for(let i=0;i<count;i++){
+const wave=(Math.sin(visualPhase+i*.58)+1)/2;
+const wave2=(Math.sin(visualPhase*.63+i*.27)+1)/2;
+const barH=isMuted ? 4 : (4+wave*wave2*(h-10));
+musicCtx.fillStyle=`hsl(${0+i*1.5} 90% 55%)`;
+musicCtx.fillRect(i*(barW+gap),h-barH,barW,barH);
+}
+};
+draw();
 }
 
 function setMusicLabel(track,status){
-  musicTrackLabel.textContent=track;
-  musicStatus.textContent=status;
+musicTrackLabel.textContent=track;
+musicStatus.textContent=status;
 }
 
 function pickRandom(list,lastIndex){
-  if(list.length===1)return 0;
-  let index=Math.floor(Math.random()*list.length);
-  if(index===lastIndex) index=(index+1+Math.floor(Math.random()*(list.length-1)))%list.length;
-  return index;
+if(list.length===1)return 0;
+let index=Math.floor(Math.random()*list.length);
+if(index===lastIndex) index=(index+1+Math.floor(Math.random()*(list.length-1)))%list.length;
+return index;
 }
 
 function playVideo(video){
-  if(!video)return;
-  pendingVideo=video;
-  ytDirectLink.href = "https://www.youtube.com/watch?v=" + video.id;
-  ytFallback.classList.remove("active");
-  setMusicLabel(video.title,"Memuat...");
-  drawVisualizer();
+if(!video)return;
+pendingVideo=video;
+ytDirectLink.href = "https://www.youtube.com/watch?v=" + video.id;
+ytFallback.classList.remove("active");
+setMusicLabel(video.title,"Memuat...");
+drawVisualizer();
 
-  if(musicWidget.classList.contains("is-mini")) setPlayerSize("normal");
+if(musicWidget.classList.contains("is-mini")) setPlayerSize("normal");
 
-  if(ytReady && ytPlayer && typeof ytPlayer.loadVideoById === "function"){
-    try{
-      ytPlayer.loadVideoById(video.id);
-      if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
-      setMusicLabel(video.title,"YouTube");
-    }catch(e){
-      handleEmbedBlocked(video);
-    }
-  }else{
-    loadYouTubeAPI();
-  }
+if(ytReady && ytPlayer && typeof ytPlayer.loadVideoById === "function"){
+try{
+ytPlayer.loadVideoById(video.id);
+if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
+setMusicLabel(video.title,"YouTube");
+}catch(e){
+handleEmbedBlocked(video);
+}
+}else{
+loadYouTubeAPI();
+}
 }
 
 function handleEmbedBlocked(video){
-  ytFallback.classList.add("active");
-  setMusicLabel(video ? video.title : "Synth Audio","Mode Lokal");
-  startFallbackSynth();
+ytFallback.classList.add("active");
+setMusicLabel(video ? video.title : "Synth Audio","Mode Lokal");
+startFallbackSynth();
 }
 
 function playFromActivePlaylist(){
-  if(activePlaylistType==="category"){
-    const index=pickRandom(categoryVideos,lastCategoryVideo);
-    lastCategoryVideo=index;
-    playVideo(categoryVideos[index]);
-  }else{
-    const index=pickRandom(detailVideos,lastDetailVideo);
-    lastDetailVideo=index;
-    playVideo(detailVideos[index]);
-  }
+if(activePlaylistType==="category"){
+const index=pickRandom(categoryVideos,lastCategoryVideo);
+lastCategoryVideo=index;
+playVideo(categoryVideos[index]);
+}else{
+const index=pickRandom(detailVideos,lastDetailVideo);
+lastDetailVideo=index;
+playVideo(detailVideos[index]);
+}
 }
 
 function playCategoryMusic(){
-  activePlaylistType="category";
-  playFromActivePlaylist();
+activePlaylistType="category";
+playFromActivePlaylist();
 }
 
 function playRandomMusic(){
-  activePlaylistType="detail";
-  playFromActivePlaylist();
+activePlaylistType="detail";
+playFromActivePlaylist();
 }
 
 function loadYouTubeAPI(){
-  if(window.YT && window.YT.Player){createYouTubePlayer();return;}
-  if(document.getElementById("youtube-api-script"))return;
-  const tag=document.createElement("script");
-  tag.id="youtube-api-script";
-  tag.src="https://www.youtube.com/iframe_api";
-  tag.onerror=()=>handleEmbedBlocked(pendingVideo);
-  document.head.appendChild(tag);
+if(window.YT && window.YT.Player){createYouTubePlayer();return;}
+if(document.getElementById("youtube-api-script"))return;
+const tag=document.createElement("script");
+tag.id="youtube-api-script";
+tag.src="https://www.youtube.com/iframe_api";
+tag.onerror=()=>handleEmbedBlocked(pendingVideo);
+document.head.appendChild(tag);
 }
 
 window.onYouTubeIframeAPIReady=function(){createYouTubePlayer();};
 
 function createYouTubePlayer(){
-  if(ytPlayer)return;
-  const isHttp = /^https?:$/i.test(window.location.protocol) && window.location.origin !== "null";
-  const playerVars = { autoplay: 1, playsinline: 1, controls: 1, rel: 0, modestbranding: 1 };
-  if(isHttp) playerVars.origin = window.location.origin;
+if(ytPlayer)return;
+const isHttp = /^https?:$/i.test(window.location.protocol) && window.location.origin !== "null";
+const playerVars = { autoplay: 1, playsinline: 1, controls: 1, rel: 0, modestbranding: 1 };
+if(isHttp) playerVars.origin = window.location.origin;
 
-  ytPlayer=new YT.Player("youtubePlayer",{
-    width:"100%", height:"100%",
-    host:"https://www.youtube-nocookie.com",
-    videoId:pendingVideo?pendingVideo.id:categoryVideos[0].id,
-    playerVars:playerVars,
-    events:{
-      onReady:(event)=>{
-        ytReady=true;
-        if(pendingVideo){
-          event.target.loadVideoById(pendingVideo.id);
-          if(isMuted) event.target.mute();
-          setMusicLabel(pendingVideo.title,"Aktif");
-        }
-      },
-      onStateChange:(event)=>{
-        if(event.data===YT.PlayerState.PLAYING){
-          stopFallbackSynth();
-          ytFallback.classList.remove("active");
-          musicStatus.textContent="Memutar";
-        }else if(event.data===YT.PlayerState.ENDED){
-          playFromActivePlaylist();
-        }else if(event.data===YT.PlayerState.PAUSED){
-          musicStatus.textContent="Dijeda";
-        }
-      },
-      onError:()=>handleEmbedBlocked(pendingVideo)
-    }
-  });
+ytPlayer=new YT.Player("youtubePlayer",{
+width:"100%", height:"100%",
+host:"https://www.youtube-nocookie.com",
+videoId:pendingVideo?pendingVideo.id:categoryVideos[0].id,
+playerVars:playerVars,
+events:{
+onReady:(event)=>{
+ytReady=true;
+if(pendingVideo){
+event.target.loadVideoById(pendingVideo.id);
+if(isMuted) event.target.mute();
+setMusicLabel(pendingVideo.title,"Aktif");
+}
+},
+onStateChange:(event)=>{
+if(event.data===YT.PlayerState.PLAYING){
+stopFallbackSynth();
+ytFallback.classList.remove("active");
+musicStatus.textContent="Memutar";
+}else if(event.data===YT.PlayerState.ENDED){
+playFromActivePlaylist();
+}else if(event.data===YT.PlayerState.PAUSED){
+musicStatus.textContent="Dijeda";
+}
+},
+onError:()=>handleEmbedBlocked(pendingVideo)
+}
+});
 }
 
 musicMute.addEventListener("click",()=>{
-  isMuted = !isMuted;
-  musicMute.textContent = isMuted ? "Unmute" : "Mute";
-  if(ytReady && ytPlayer && typeof ytPlayer.mute === "function"){
-    if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
-  }
-  if(synthGain && audioCtx){
-    synthGain.gain.setValueAtTime(isMuted ? 0 : 0.045, audioCtx.currentTime);
-  }
+isMuted = !isMuted;
+musicMute.textContent = isMuted ? "Unmute" : "Mute";
+if(ytReady && ytPlayer && typeof ytPlayer.mute === "function"){
+if(isMuted) ytPlayer.mute(); else ytPlayer.unMute();
+}
+if(synthGain && audioCtx){
+synthGain.gain.setValueAtTime(isMuted ? 0 : 0.045, audioCtx.currentTime);
+}
 });
 
 (()=>{
-  const handle=document.getElementById("musicDrag");
-  let dragging=false, startX=0, startY=0, originX=0, originY=0;
-  handle.addEventListener("pointerdown",e=>{
-    if(e.target.closest("button")) return;
-    dragging=true; startX=e.clientX; startY=e.clientY;
-    const r=musicWidget.getBoundingClientRect();
-    originX=r.left; originY=r.top;
-    handle.setPointerCapture(e.pointerId);
-  });
-  handle.addEventListener("pointermove",e=>{
-    if(!dragging)return;
-    const x=Math.max(0,Math.min(window.innerWidth-musicWidget.offsetWidth,originX+e.clientX-startX));
-    const y=Math.max(0,Math.min(window.innerHeight-musicWidget.offsetHeight,originY+e.clientY-startY));
-    musicWidget.style.left=x+"px"; musicWidget.style.top=y+"px";
-    musicWidget.style.right="auto"; musicWidget.style.bottom="auto";
-  });
-  handle.addEventListener("pointerup",()=>dragging=false);
-  handle.addEventListener("pointercancel",()=>dragging=false);
+const handle=document.getElementById("musicDrag");
+let dragging=false, startX=0, startY=0, originX=0, originY=0;
+handle.addEventListener("pointerdown",e=>{
+if(e.target.closest("button")) return;
+dragging=true; startX=e.clientX; startY=e.clientY;
+const r=musicWidget.getBoundingClientRect();
+originX=r.left; originY=r.top;
+handle.setPointerCapture(e.pointerId);
+});
+handle.addEventListener("pointermove",e=>{
+if(!dragging)return;
+const x=Math.max(0,Math.min(window.innerWidth-musicWidget.offsetWidth,originX+e.clientX-startX));
+const y=Math.max(0,Math.min(window.innerHeight-musicWidget.offsetHeight,originY+e.clientY-startY));
+musicWidget.style.left=x+"px"; musicWidget.style.top=y+"px";
+musicWidget.style.right="auto"; musicWidget.style.bottom="auto";
+});
+handle.addEventListener("pointerup",()=>dragging=false);
+handle.addEventListener("pointercancel",()=>dragging=false);
 })();
 
+document.querySelectorAll('img').forEach(img=>{
+img.addEventListener('error',()=>{
+const fallbacks = [img.dataset.altSrc, img.dataset.altSrc2].filter(Boolean);
+const step = Number(img.dataset.fbStep || 0);
+if(step < fallbacks.length){
+img.dataset.fbStep = String(step + 1);
+img.src = fallbacks[step];
+return;
+}
+img.style.display='none';
+if(img.parentElement){
+const marker = document.createElement('span');
+marker.textContent = img.dataset.fallback || '🔌';
+marker.style.fontSize = '1.8rem';
+img.parentElement.appendChild(marker);
+}
+});
+});
+
 function showSection(id){
-  stopMiniGameAll();
-  document.querySelectorAll('.section,.hero,.menu').forEach(x=>x.classList.remove('active'));
-  if(id==='home'){
-    document.getElementById('home').classList.add('active');
-    document.getElementById('menu').classList.add('active');
-    document.getElementById('phoneDetail').classList.remove('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-    return;
-  }
-  const target = document.getElementById(id);
-  if(id!=='minigames') playCategoryMusic();
-  if(id==='audiorank'){
-    document.getElementById('audioDisclaimer').style.display='block';
-    document.getElementById('audioRankList').style.display='none';
-    document.getElementById('audioDetail').classList.remove('active');
-  }
-  target.classList.add('active');
-  document.getElementById('phoneDetail').classList.remove('active');
-  requestAnimationFrame(()=>target.scrollIntoView({behavior:'smooth',block:'start'}));
+stopMiniGameAll();
+document.querySelectorAll('.section,.hero,.menu').forEach(x=>x.classList.remove('active'));
+if(id==='home'){
+document.getElementById('home').classList.add('active');
+document.getElementById('menu').classList.add('active');
+document.getElementById('phoneDetail').classList.remove('active');
+document.getElementById('accessoryDetail').classList.remove('active');
+window.scrollTo({top:0,behavior:'smooth'});
+return;
+}
+const target = document.getElementById(id);
+if(id!=='minigames') playCategoryMusic();
+if(id==='audiorank'){
+document.getElementById('audioDisclaimer').style.display='block';
+document.getElementById('audioRankList').style.display='none';
+document.getElementById('audioDetail').classList.remove('active');
+}
+target.classList.add('active');
+document.getElementById('phoneDetail').classList.remove('active');
+document.getElementById('accessoryDetail').classList.remove('active');
+requestAnimationFrame(()=>target.scrollIntoView({behavior:'smooth',block:'start'}));
 }
 
 function proceedAudioRanking(){
-  document.getElementById('audioDisclaimer').style.display='none';
-  document.getElementById('audioRankList').style.display='block';
-  document.getElementById('audioDetail').classList.remove('active');
+document.getElementById('audioDisclaimer').style.display='none';
+document.getElementById('audioRankList').style.display='block';
+document.getElementById('audioDetail').classList.remove('active');
 }
 
 function showAudioDetail(id){
-  playRandomMusic();
-  const item = audioRankData[id];
-  const el = document.getElementById('audioDetail');
-  el.innerHTML =
-    '<div class="rank-badge" style="margin-bottom:10px">' + item.rankLabel + '</div>' +
-    '<h3>' + item.name + '</h3>' +
-    '<p class="note">Detail skor pengujian audio berdasarkan pengalaman penggunaan langsung:</p>' +
-    '<div class="audio-score-grid">' +
-      item.scores.map(s =>
-        '<div class="audio-score-card">' +
-          '<div class="audio-score-head"><b>' + s.title + '</b><span class="score-pill">' + s.rate + '</span></div>' +
-          '<p>' + s.reason + '</p>' +
-        '</div>'
-      ).join('') +
-    '</div>' +
-    '<div class="audio-caution"><b>HAL YANG PERLU DIPERHATIKAN</b><p>' + item.caution + '</p></div>' +
-    '<div class="detail-actions"><button class="detail-back" type="button" onclick="backToAudioList()">← Kembali ke daftar rangking</button></div>';
-  el.classList.add('active');
-  el.scrollIntoView({behavior:'smooth',block:'start'});
+playRandomMusic();
+const item = audioRankData[id];
+const el = document.getElementById('audioDetail');
+el.innerHTML =
+'<div class="rank-badge" style="margin-bottom:10px">' + item.rankLabel + '</div>' +
+'<h3>' + item.name + '</h3>' +
+'<p class="note">Detail skor pengujian audio berdasarkan pengalaman penggunaan langsung:</p>' +
+'<div class="audio-score-grid">' +
+item.scores.map(s =>
+'<div class="audio-score-card">' +
+'<div class="audio-score-head"><b>' + s.title + '</b><span class="score-pill">' + s.rate + '</span></div>' +
+'<p>' + s.reason + '</p>' +
+'</div>'
+).join('') +
+'</div>' +
+'<div class="audio-caution"><b>HAL YANG PERLU DIPERHATIKAN</b><p>' + item.caution + '</p></div>' +
+'<div class="detail-actions"><button class="detail-back" type="button" onclick="backToAudioList()">← Kembali ke daftar rangking</button></div>';
+el.classList.add('active');
+el.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function backToAudioList(){
-  const detail = document.getElementById('audioDetail');
-  detail.classList.remove('active');
-  const list = document.getElementById('audioRankList');
-  requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
+const detail = document.getElementById('audioDetail');
+detail.classList.remove('active');
+const list = document.getElementById('audioRankList');
+requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
 }
 
 function showPhone(id){
-  playRandomMusic();
-  const p=data[id],el=document.getElementById('phoneDetail');
-  el.innerHTML='<h3>'+p.name+'</h3><p class="note">'+p.note+'</p><div class="spec-grid">'+
-    p.specs.map(s=>'<div class="spec"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>').join('')+
-    '</div><div class="detail-actions"><button class="detail-back" type="button" onclick="showPhoneList()">← Kembali ke daftar HP</button></div>';
-  el.classList.add('active');
-  el.scrollIntoView({behavior:'smooth',block:'start'});
+playRandomMusic();
+const p=data[id],el=document.getElementById('phoneDetail');
+el.innerHTML='<h3>'+p.name+'</h3><p class="note">'+p.note+'</p><div class="spec-grid">'+
+p.specs.map(s=>'<div class="spec"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>').join('')+
+'</div><div class="detail-actions"><button class="detail-back" type="button" onclick="showPhoneList()">← Kembali ke daftar HP</button></div>';
+el.classList.add('active');
+el.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function showPhoneList(){
-  const detail=document.getElementById('phoneDetail');
-  detail.classList.remove('active');
-  const list=document.querySelector('#phones .phone-grid');
-  requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
+const detail=document.getElementById('phoneDetail');
+detail.classList.remove('active');
+const list=document.querySelector('#phones .phone-grid');
+requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
+}
+
+function showAccessory(id){
+playRandomMusic();
+const a=accessoriesData[id],el=document.getElementById('accessoryDetail');
+const shopBtn = a.shopUrl ? '<a class="shop-link-btn" href="'+a.shopUrl+'" target="_blank" rel="noopener noreferrer">Buka Toko Pembelian ↗</a>' : '';
+el.innerHTML='<h3>'+a.name+'</h3><p class="note">'+a.note+'</p><div class="spec-grid">'+
+a.specs.map(s=>'<div class="spec"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>').join('')+
+'</div><div class="detail-actions"><button class="detail-back" type="button" onclick="showAccessoryList()">← Kembali ke daftar aksesoris</button>'+shopBtn+'</div>';
+el.classList.add('active');
+el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function showAccessoryList(){
+const detail=document.getElementById('accessoryDetail');
+detail.classList.remove('active');
+const list=document.querySelector('#accessories .phone-grid');
+requestAnimationFrame(()=>list.scrollIntoView({behavior:'smooth',block:'start'}));
 }
 
 /* MINI GAME ENGINE */
@@ -675,231 +746,231 @@ let gameTimeout = null;
 let gameMuted = false;
 
 function gameTone(freq, dur = 0.12, type = 'square', vol = 0.06, slide = null){
-  if(gameMuted) return;
-  try{
-    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    const now = audioCtx.currentTime;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, now);
-    if(slide) osc.frequency.exponentialRampToValueAtTime(slide, now + dur);
-    gain.gain.setValueAtTime(vol, now);
-    gain.gain.exponentialRampToValueAtTime(0.0008, now + dur);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start(now);
-    osc.stop(now + dur);
-  }catch(e){}
+if(gameMuted) return;
+try{
+if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+if(audioCtx.state === 'suspended') audioCtx.resume();
+const now = audioCtx.currentTime;
+const osc = audioCtx.createOscillator();
+const gain = audioCtx.createGain();
+osc.type = type;
+osc.frequency.setValueAtTime(freq, now);
+if(slide) osc.frequency.exponentialRampToValueAtTime(slide, now + dur);
+gain.gain.setValueAtTime(vol, now);
+gain.gain.exponentialRampToValueAtTime(0.0008, now + dur);
+osc.connect(gain);
+gain.connect(audioCtx.destination);
+osc.start(now);
+osc.stop(now + dur);
+}catch(e){}
 }
 
 const gSfx = {
-  tap: () => gameTone(520, 0.06, 'triangle', 0.08, 780),
-  hit: () => { gameTone(340, 0.08, 'square', 0.09, 680); setTimeout(()=>gameTone(780,0.08,'sine',0.07),50); },
-  bad: () => gameTone(540, 0.2, 'sawtooth', 0.09, 150),
-  eat: () => gameTone(440, 0.07, 'square', 0.08, 880),
-  win: () => [523,659,784,1046].forEach((f,i)=>setTimeout(()=>gameTone(f,0.13,'triangle',0.09),i*80)),
-  over: () => [330,277,220,165].forEach((f,i)=>setTimeout(()=>gameTone(f,0.16,'sawtooth',0.08),i*100))
+tap: () => gameTone(520, 0.06, 'triangle', 0.08, 780),
+hit: () => { gameTone(340, 0.08, 'square', 0.09, 680); setTimeout(()=>gameTone(780,0.08,'sine',0.07),50); },
+bad: () => gameTone(540, 0.2, 'sawtooth', 0.09, 150),
+eat: () => gameTone(440, 0.07, 'square', 0.08, 880),
+win: () => [523,659,784,1046].forEach((f,i)=>setTimeout(()=>gameTone(f,0.13,'triangle',0.09),i*80)),
+over: () => [330,277,220,165].forEach((f,i)=>setTimeout(()=>gameTone(f,0.16,'sawtooth',0.08),i*100))
 };
 
 const gBgmTracks = {
-  thermal: { tempo: 175, wave: 'square', vol: 0.035, notes: [164.8,220,196,246.9] },
-  snake:   { tempo: 210, wave: 'triangle', vol: 0.05, notes: [261.6,329.6,392,523.2] },
-  reflex:  { tempo: 320, wave: 'sine', vol: 0.045, notes: [146.8,220,196,246.9] }
+thermal: { tempo: 175, wave: 'square', vol: 0.035, notes: [164.8,220,196,246.9] },
+snake:   { tempo: 210, wave: 'triangle', vol: 0.05, notes: [261.6,329.6,392,523.2] },
+reflex:  { tempo: 320, wave: 'sine', vol: 0.045, notes: [146.8,220,196,246.9] }
 };
 
 function startGameBgm(mode){
-  if(gameBgmTimer){ clearInterval(gameBgmTimer); gameBgmTimer = null; }
-  const t = gBgmTracks[mode];
-  if(!t) return;
-  let i = 0;
-  gameBgmTimer = setInterval(()=>{
-    if(!gameMuted){
-      gameTone(t.notes[i % t.notes.length], (t.tempo/1000)*0.82, t.wave, t.vol);
-      i++;
-    }
-  }, t.tempo);
+if(gameBgmTimer){ clearInterval(gameBgmTimer); gameBgmTimer = null; }
+const t = gBgmTracks[mode];
+if(!t) return;
+let i = 0;
+gameBgmTimer = setInterval(()=>{
+if(!gameMuted){
+gameTone(t.notes[i % t.notes.length], (t.tempo/1000)*0.82, t.wave, t.vol);
+i++;
+}
+}, t.tempo);
 }
 
 function stopMiniGameAll(){
-  if(gameBgmTimer){ clearInterval(gameBgmTimer); gameBgmTimer = null; }
-  if(gameLoopTimer){ clearInterval(gameLoopTimer); gameLoopTimer = null; }
-  if(gameSpawnTimer){ clearInterval(gameSpawnTimer); gameSpawnTimer = null; }
-  if(gameTimeout){ clearTimeout(gameTimeout); gameTimeout = null; }
+if(gameBgmTimer){ clearInterval(gameBgmTimer); gameBgmTimer = null; }
+if(gameLoopTimer){ clearInterval(gameLoopTimer); gameLoopTimer = null; }
+if(gameSpawnTimer){ clearInterval(gameSpawnTimer); gameSpawnTimer = null; }
+if(gameTimeout){ clearTimeout(gameTimeout); gameTimeout = null; }
 }
 
 function toggleGameSound(){
-  gameMuted = !gameMuted;
-  document.getElementById('gameSoundBtn').textContent = gameMuted ? '🔇 Suara: OFF' : '🔊 Suara: ON';
+gameMuted = !gameMuted;
+document.getElementById('gameSoundBtn').textContent = gameMuted ? '🔇 Suara: OFF' : '🔊 Suara: ON';
 }
 
 function startMiniGame(mode){
-  gSfx.tap();
-  stopMiniGameAll();
-  stopFallbackSynth();
-  if(ytReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function'){
-    try{ ytPlayer.pauseVideo(); }catch(e){}
-  }
-  document.getElementById('gamePicker').style.display = 'none';
-  document.getElementById('gameArena').classList.add('active');
-  startGameBgm(mode);
+gSfx.tap();
+stopMiniGameAll();
+stopFallbackSynth();
+if(ytReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function'){
+try{ ytPlayer.pauseVideo(); }catch(e){}
+}
+document.getElementById('gamePicker').style.display = 'none';
+document.getElementById('gameArena').classList.add('active');
+startGameBgm(mode);
 
-  if(mode === 'thermal') runThermalGame();
-  if(mode === 'snake') runSnakeGame();
-  if(mode === 'reflex') runReflexGame();
+if(mode === 'thermal') runThermalGame();
+if(mode === 'snake') runSnakeGame();
+if(mode === 'reflex') runReflexGame();
 }
 
 function backToGameList(){
-  gSfx.tap();
-  stopMiniGameAll();
-  document.getElementById('gameArena').classList.remove('active');
-  document.getElementById('gamePicker').style.display = 'grid';
+gSfx.tap();
+stopMiniGameAll();
+document.getElementById('gameArena').classList.remove('active');
+document.getElementById('gamePicker').style.display = 'grid';
 }
 
 function exitMiniGames(){
-  stopMiniGameAll();
-  document.getElementById('gameArena').classList.remove('active');
-  document.getElementById('gamePicker').style.display = 'grid';
-  showSection('home');
+stopMiniGameAll();
+document.getElementById('gameArena').classList.remove('active');
+document.getElementById('gamePicker').style.display = 'grid';
+showSection('home');
 }
 
 function runThermalGame(){
-  let score = 0, timeLeft = 25, activeIdx = -1, isCooler = false;
-  const hud = document.getElementById('arenaHud');
-  const stage = document.getElementById('gameStage');
-  hud.innerHTML = 'Skor: <span id="tScore">0</span> · Waktu: <span id="tTime">25s</span>';
-  stage.innerHTML = '<p style="text-align:center;color:var(--muted);margin:0 0 8px;font-size:.88rem">Ketuk <b>🔥 Chipset Panas</b> (+10), hindari <b>❄️ Cooler</b> (-15)!</p>' +
-    '<div class="mole-grid">' + Array.from({length:9},(_,i)=>'<button class="hole" data-i="'+i+'">■</button>').join('') + '</div>';
+let score = 0, timeLeft = 25, activeIdx = -1, isCooler = false;
+const hud = document.getElementById('arenaHud');
+const stage = document.getElementById('gameStage');
+hud.innerHTML = 'Skor: <span id="tScore">0</span> · Waktu: <span id="tTime">25s</span>';
+stage.innerHTML = '<p style="text-align:center;color:var(--muted);margin:0 0 8px;font-size:.88rem">Ketuk <b>🔥 Chipset Panas</b> (+10), hindari <b>❄️ Cooler</b> (-15)!</p>' +
+'<div class="mole-grid">' + Array.from({length:9},(_,i)=>'<button class="hole" data-i="'+i+'">■</button>').join('') + '</div>';
 
-  const holes = [...stage.querySelectorAll('.hole')];
-  holes.forEach(h=>{
-    h.onclick = ()=>{
-      const idx = Number(h.dataset.i);
-      if(idx !== activeIdx || timeLeft <= 0) return;
-      if(isCooler){ score = Math.max(0, score - 15); gSfx.bad(); }
-      else { score += 10; gSfx.hit(); }
-      activeIdx = -1; h.className = 'hole'; h.textContent = '■';
-      document.getElementById('tScore').textContent = score;
-    };
-  });
+const holes = [...stage.querySelectorAll('.hole')];
+holes.forEach(h=>{
+h.onclick = ()=>{
+const idx = Number(h.dataset.i);
+if(idx !== activeIdx || timeLeft <= 0) return;
+if(isCooler){ score = Math.max(0, score - 15); gSfx.bad(); }
+else { score += 10; gSfx.hit(); }
+activeIdx = -1; h.className = 'hole'; h.textContent = '■';
+document.getElementById('tScore').textContent = score;
+};
+});
 
-  const spawn = ()=>{
-    holes.forEach(h=>{ h.className='hole'; h.textContent='■'; });
-    activeIdx = Math.floor(Math.random()*9);
-    isCooler = Math.random() < 0.25;
-    holes[activeIdx].classList.add(isCooler ? 'cool' : 'hot');
-    holes[activeIdx].textContent = isCooler ? '❄️' : '🔥';
-  };
-  spawn();
-  gameSpawnTimer = setInterval(spawn, 750);
-  gameLoopTimer = setInterval(()=>{
-    timeLeft--;
-    const el = document.getElementById('tTime');
-    if(el) el.textContent = timeLeft + 's';
-    if(timeLeft <= 0){
-      stopMiniGameAll();
-      gSfx.win();
-      stage.innerHTML = '<div style="text-align:center;padding:24px 10px"><h3 style="margin:0 0 8px">Waktu Habis!</h3><p style="color:var(--muted);margin:0 0 16px">Skor Akhir: <strong style="color:var(--accent)">'+score+'</strong></p><button class="game-play-btn" onclick="startMiniGame(\'thermal\')">Main Lagi</button></div>';
-    }
-  }, 1000);
+const spawn = ()=>{
+holes.forEach(h=>{ h.className='hole'; h.textContent='■'; });
+activeIdx = Math.floor(Math.random()*9);
+isCooler = Math.random() < 0.25;
+holes[activeIdx].classList.add(isCooler ? 'cool' : 'hot');
+holes[activeIdx].textContent = isCooler ? '❄️' : '🔥';
+};
+spawn();
+gameSpawnTimer = setInterval(spawn, 750);
+gameLoopTimer = setInterval(()=>{
+timeLeft--;
+const el = document.getElementById('tTime');
+if(el) el.textContent = timeLeft + 's';
+if(timeLeft <= 0){
+stopMiniGameAll();
+gSfx.win();
+stage.innerHTML = '<div style="text-align:center;padding:24px 10px"><h3 style="margin:0 0 8px">Waktu Habis!</h3><p style="color:var(--muted);margin:0 0 16px">Skor Akhir: <strong style="color:var(--accent)">'+score+'</strong></p><button class="game-play-btn" onclick="startMiniGame(\'thermal\')">Main Lagi</button></div>';
+}
+}, 1000);
 }
 
 function runSnakeGame(){
-  const hud = document.getElementById('arenaHud');
-  const stage = document.getElementById('gameStage');
-  hud.innerHTML = 'Skor: <span id="sScore">0</span>';
-  stage.innerHTML = '<canvas id="snakeCanvas" width="280" height="280"></canvas>' +
-    '<div class="dpad"><div></div><button onclick="setSnakeDir(0,-1)">▲</button><div></div>' +
-    '<button onclick="setSnakeDir(-1,0)">◀</button><button onclick="setSnakeDir(0,1)">▼</button><button onclick="setSnakeDir(1,0)">▶</button></div>';
+const hud = document.getElementById('arenaHud');
+const stage = document.getElementById('gameStage');
+hud.innerHTML = 'Skor: <span id="sScore">0</span>';
+stage.innerHTML = '<canvas id="snakeCanvas" width="280" height="280"></canvas>' +
+'<div class="dpad"><div></div><button onclick="setSnakeDir(0,-1)">▲</button><div></div>' +
+'<button onclick="setSnakeDir(-1,0)">◀</button><button onclick="setSnakeDir(0,1)">▼</button><button onclick="setSnakeDir(1,0)">▶</button></div>';
 
-  const canvas = document.getElementById('snakeCanvas');
-  const ctx = canvas.getContext('2d');
-  const grid = 14, cells = 20;
-  let snake = [{x:10,y:10},{x:9,y:10},{x:8,y:10}];
-  let dir = {x:1,y:0}, nextDir = {x:1,y:0}, food = {x:15,y:10}, score = 0;
+const canvas = document.getElementById('snakeCanvas');
+const ctx = canvas.getContext('2d');
+const grid = 14, cells = 20;
+let snake = [{x:10,y:10},{x:9,y:10},{x:8,y:10}];
+let dir = {x:1,y:0}, nextDir = {x:1,y:0}, food = {x:15,y:10}, score = 0;
 
-  window.setSnakeDir = (nx, ny)=>{
-    if(nx === -dir.x && ny === -dir.y) return;
-    nextDir = {x:nx, y:ny};
-    gSfx.tap();
-  };
+window.setSnakeDir = (nx, ny)=>{
+if(nx === -dir.x && ny === -dir.y) return;
+nextDir = {x:nx, y:ny};
+gSfx.tap();
+};
 
-  gameLoopTimer = setInterval(()=>{
-    dir = nextDir;
-    const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
-    if(head.x < 0 || head.x >= cells || head.y < 0 || head.y >= cells || snake.some(s=>s.x===head.x && s.y===head.y)){
-      stopMiniGameAll();
-      gSfx.over();
-      stage.innerHTML = '<div style="text-align:center;padding:24px 10px"><h3 style="margin:0 0 8px">System Crash!</h3><p style="color:var(--muted);margin:0 0 16px">Skor: <strong style="color:var(--accent)">'+score+'</strong></p><button class="game-play-btn" onclick="startMiniGame(\'snake\')">Ulangi</button></div>';
-      return;
-    }
-    snake.unshift(head);
-    if(head.x === food.x && head.y === food.y){
-      score += 10;
-      document.getElementById('sScore').textContent = score;
-      gSfx.eat();
-      food = {x: Math.floor(Math.random()*cells), y: Math.floor(Math.random()*cells)};
-    } else {
-      snake.pop();
-    }
-    ctx.fillStyle = '#060202';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = '#ffb2b2';
-    ctx.fillRect(food.x*grid+2, food.y*grid+2, grid-4, grid-4);
-    snake.forEach((p, idx)=>{
-      ctx.fillStyle = idx === 0 ? '#ff1a1a' : '#ff4d4d';
-      ctx.fillRect(p.x*grid+1, p.y*grid+1, grid-2, grid-2);
-    });
-  }, 150);
+gameLoopTimer = setInterval(()=>{
+dir = nextDir;
+const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+if(head.x < 0 || head.x >= cells || head.y < 0 || head.y >= cells || snake.some(s=>s.x===head.x && s.y===head.y)){
+stopMiniGameAll();
+gSfx.over();
+stage.innerHTML = '<div style="text-align:center;padding:24px 10px"><h3 style="margin:0 0 8px">System Crash!</h3><p style="color:var(--muted);margin:0 0 16px">Skor: <strong style="color:var(--accent)">'+score+'</strong></p><button class="game-play-btn" onclick="startMiniGame(\'snake\')">Ulangi</button></div>';
+return;
+}
+snake.unshift(head);
+if(head.x === food.x && head.y === food.y){
+score += 10;
+document.getElementById('sScore').textContent = score;
+gSfx.eat();
+food = {x: Math.floor(Math.random()*cells), y: Math.floor(Math.random()*cells)};
+} else {
+snake.pop();
+}
+ctx.fillStyle = '#060202';
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle = '#ffb2b2';
+ctx.fillRect(food.x*grid+2, food.y*grid+2, grid-4, grid-4);
+snake.forEach((p, idx)=>{
+ctx.fillStyle = idx === 0 ? '#ff1a1a' : '#ff4d4d';
+ctx.fillRect(p.x*grid+1, p.y*grid+1, grid-2, grid-2);
+});
+}, 150);
 }
 
 function runReflexGame(){
-  let state = 'idle', startTime = 0, bestMs = null;
-  const hud = document.getElementById('arenaHud');
-  const stage = document.getElementById('gameStage');
-  hud.innerHTML = 'Rekor Terbaik: <span id="rBest">-</span>';
-  stage.innerHTML = '<div id="reflexBox" class="reflex-box"><strong id="rTitle" style="font-size:1.2rem">Ketuk Kotak Ini untuk Mulai</strong><span id="rSub" style="color:var(--muted);font-size:.88rem;margin-top:8px">Tunggu warna berubah HIJAU, lalu ketuk secepat mungkin!</span></div>';
+let state = 'idle', startTime = 0, bestMs = null;
+const hud = document.getElementById('arenaHud');
+const stage = document.getElementById('gameStage');
+hud.innerHTML = 'Rekor Terbaik: <span id="rBest">-</span>';
+stage.innerHTML = '<div id="reflexBox" class="reflex-box"><strong id="rTitle" style="font-size:1.2rem">Ketuk Kotak Ini untuk Mulai</strong><span id="rSub" style="color:var(--muted);font-size:.88rem;margin-top:8px">Tunggu warna berubah HIJAU, lalu ketuk secepat mungkin!</span></div>';
 
-  const box = document.getElementById('reflexBox');
-  const title = document.getElementById('rTitle');
-  const sub = document.getElementById('rSub');
+const box = document.getElementById('reflexBox');
+const title = document.getElementById('rTitle');
+const sub = document.getElementById('rSub');
 
-  box.onclick = ()=>{
-    if(state === 'idle'){
-      state = 'wait';
-      box.className = 'reflex-box wait';
-      title.textContent = 'Tunggu Hijau...';
-      sub.textContent = 'Jangan ketuk dulu!';
-      gSfx.tap();
-      gameTimeout = setTimeout(()=>{
-        state = 'go';
-        startTime = performance.now();
-        box.className = 'reflex-box go';
-        title.textContent = 'KETUK SEKARANG!';
-        sub.textContent = 'GO!';
-        gameTone(880, 0.12, 'sine', 0.11);
-      }, 1400 + Math.random()*2400);
-    } else if(state === 'wait'){
-      clearTimeout(gameTimeout);
-      state = 'idle';
-      box.className = 'reflex-box';
-      title.textContent = 'Terlalu Cepat!';
-      sub.textContent = 'Ketuk lagi untuk mencoba ulang.';
-      gSfx.bad();
-    } else if(state === 'go'){
-      const diff = Math.round(performance.now() - startTime);
-      state = 'idle';
-      box.className = 'reflex-box';
-      if(bestMs === null || diff < bestMs){
-        bestMs = diff;
-        document.getElementById('rBest').textContent = bestMs + ' ms';
-      }
-      title.textContent = diff + ' ms';
-      sub.textContent = 'Ketuk kotak ini untuk tes ulang.';
-      gSfx.win();
-    }
-  };
+box.onclick = ()=>{
+if(state === 'idle'){
+state = 'wait';
+box.className = 'reflex-box wait';
+title.textContent = 'Tunggu Hijau...';
+sub.textContent = 'Jangan ketuk dulu!';
+gSfx.tap();
+gameTimeout = setTimeout(()=>{
+state = 'go';
+startTime = performance.now();
+box.className = 'reflex-box go';
+title.textContent = 'KETUK SEKARANG!';
+sub.textContent = 'GO!';
+gameTone(880, 0.12, 'sine', 0.11);
+}, 1400 + Math.random()*2400);
+} else if(state === 'wait'){
+clearTimeout(gameTimeout);
+state = 'idle';
+box.className = 'reflex-box';
+title.textContent = 'Terlalu Cepat!';
+sub.textContent = 'Ketuk lagi untuk mencoba ulang.';
+gSfx.bad();
+} else if(state === 'go'){
+const diff = Math.round(performance.now() - startTime);
+state = 'idle';
+box.className = 'reflex-box';
+if(bestMs === null || diff < bestMs){
+bestMs = diff;
+document.getElementById('rBest').textContent = bestMs + ' ms';
+}
+title.textContent = diff + ' ms';
+sub.textContent = 'Ketuk kotak ini untuk tes ulang.';
+gSfx.win();
+}
+};
 }
 </script>
 </body>
